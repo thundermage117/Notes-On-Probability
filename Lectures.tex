@@ -1,0 +1,63 @@
+\documentclass{article}
+
+\begin{document}
+\section{Probability Space}
+There are often various approaches to probability each with its own advantages
+and disadvantages.
+
+Experiment$\rightarrow$ procedure that can be infinitely repeated and has a
+well-defined set of possible outcomes, known as the sample space.
+
+The observation/result of the experiment are termed as outcomes.
+
+\subsection{Classical Approach}
+        Probability of an event $E$ is defined to be: $$P(E)=\frac{Number\; of\;
+         outcomes\;in\; E}{Total\; number\; of\; outcomes}$$
+         Some examples are tossing a coin or rolling a die.
+         Disadvantages:
+         \begin{itemize}
+             \item Unable to model biases. It says nothing about cases where no
+             physical symmetry exists.
+             \item Doesn't deal with cases where total outcomes are infinite.
+         \end{itemize}
+
+         \subsection{Frequentist Approach}
+         Also known as the relative frequency approach or frequentism. It defines
+         an event's probability as the limit of its relative frequency in many
+         trials.
+
+         Probability is defined to be:
+         $$ P(E)=\lim_{n \to \infty} \frac{n_E}{n}$$
+         where an experiment is conducted $n$ times and event $E$ occurs $n_E$
+         times.
+         Disadvantages:
+         \begin{itemize}
+             \item It isn't efficient to conduct an experiment multiple times
+             just to find the probability of an event occuring.
+             \item It is unable to deal with subjective belief. Eg: Suppose a
+             cricket expert says there is a $50\%$ of RCB winning the IPL this
+             year. It doesn't mean that the RCB has won half the titles in the
+             past.
+         \end{itemize}
+%
+         \subsection{Axiomatic Approach}
+
+         \subsubsection{Probability Space}
+
+The triple ($S$, $F$, $P$) is referred to as a probability space where:
+\begin{itemize}
+    \item $S$ : Sample space, set of all possible outcomes of the experiment.
+    \item $F$ : Event Space, collection of events
+    \item $P$ : Probability Measure
+\end{itemize}
+
+$S$ can either be finite or countably infinite or uncountably infinite.
+
+
+
+
+
+
+
+
+\end{document}
