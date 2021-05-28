@@ -47,11 +47,91 @@ The observation/result of the experiment are termed as outcomes.
 The triple ($S$, $F$, $P$) is referred to as a probability space where:
 \begin{itemize}
     \item $S$ : Sample space, set of all possible outcomes of the experiment.
-    \item $F$ : Event Space, collection of events
+    \item $F$ : Event Space, subset of the sample space
     \item $P$ : Probability Measure
 \end{itemize}
+\subsubsection{Sample Space}
 
 $S$ can either be finite or countably infinite or uncountably infinite.
+%28/05
+
+Examples for S:
+\begin{itemize}
+        \item Finite Sample Space: Single coin toss $ S=\{H,T\} $ and two coin tosses $ S=\{HH,HT,TT,TH\} $.
+        \item Countably Infinite Sample Space: Keep tossing a coin till you get a head $ S=\{H,TH,TTH...\}$.
+        \item Uncountably Infinite Sample Space: We have a circular dart board and we are measuring the angle at which a dart hits the board. $S=[0,2\pi]$
+\end{itemize}
+
+\subsection{Event Space}
+Collection of events is called an event space, there are some properties to be satisified such as:
+it has to be a ``Sigma Field''.
+
+\subsubsection{Sigma Field}
+A sigma field (or sigma algebra) F is a collection of subsets of S which satisfies the following properties:
+\begin{itemize}
+    \item $S \in F$
+    \item If $E \in F$, then $E^C \in F$
+    \item If $E_1,E_2,E_3 \cdots \in F $, then $\bigcup_{i=1}^{\infty} E_i \in F$
+\end{itemize}
+
+\subsubsection{Examples for Event Space}
+\begin{itemize}
+    \item Smallest possible event space:
+    $$ F =\{ \phi,S\} $$
+    \item Next non-trivial event space:
+    $$ F=\{ \phi,E ,E^c ,S\}$$
+    \item If $E_1 \in F$ and $E_2 \in F$, then $E_1 \cap E_2 \in F$ (Proof given later for general case)
+    \item For S={1,2,3,4,5,6} , $E_1 ={1,2}$ and $E_2={3,4}$. The smallest event space containing $E_1$ and $E_2$ is:
+    $$ F={\phi , S, E_1 , E_{1}^{C},E_2 , E_{2}^{C},E_1 \bigcup E_2 , {E_{1} \bigcup E_{2}}^{C}}$$
+\end{itemize}
+
+\subsubsection{Proposition 1}
+If $\Sigma$ is a $\sigma$-algebra on $\Omega$, and A$_1$, A$_2$, A$_3$,....A$_n$ $\in$ $\Sigma$, then $\bigcap\limits_{i=1}^n$A$_i$ $\in$ $\Sigma$.
+
+\textbf{Proof: }If A$_1$, A$_2$, A$_3$,....A$_n$ $\in$ $\Sigma$, then A$_1^c$, A$_2^c$, A$_3^c$,....A$_n^c$ $\in$ $\Sigma$ and $\bigcup\limits_{i=1}^n$A$_i^c$ $\in$ $\Sigma$. Then by property 2, $(\bigcup\limits_{i=1}^n$A$_i^c)^c$ = $\bigcap\limits_{i=1}^n$A$_i$ $\in$ $\Sigma$.
+
+\subsubsection{Proposition 2}
+If $\Sigma$ is a $\sigma$-algebra on $\Omega$ and A, B $\in$ $\Sigma$, then A$\setminus$B = A - B $\in$ $\Sigma$.\medskip
+
+\textbf{Proof: }If B $\in$ $\Sigma$, then B$^c$ $\in$ $\Sigma$ by  property 2. So, A $\cap$ B$^c$ = A$\setminus$B $\in$ $\Sigma$ (As seen in proposition 1).
+
+\subsection{Probability Space}
+%incomplete
+
+P has to satisfy the following 3 axioms:
+\begin{itemize}
+    \item $P(E) \geq 0$
+    \item $P(S)=1$
+    \item If $E_1,E_2 \cdots \in F$ such that $E_i \cap E_j =\phi$ then:
+    $$ P(\bigcup_{i=1}^{\infty} E_{i})= \sum_{i=1}^{\infty} P(E_i)$$
+\end{itemize}
+
+$P(E_1 \cup E_2)= P(E_1)+P(E_2)+ \sum$%incomplete
+
+\subsection{Derived Properties of Probability}
+\begin{enumerate}
+    \item $$P(E^C)=1-P(E)$$
+        Proof:$$E \cup E^C = S$$
+            $$P(E)+P(E^C)=1$$
+
+    \item For any two events $E_1$ and $E_2$,
+    $$ P(E_1 \cup E_2)= P(E_1)+P(E_2)+P(E_1 \cap E_2)$$
+    Proof:
+    $$ P(E_1 \cup E_2)=P(E_1)+P(E_2 \cap E_1^C)$$
+    Now, $$ E_2=(E_2 \cap E_1)\cup (E_2 \cap E_1^C)$$
+
+    $$P(E_1 \cup E_2)= $$%inclomplete
+\end{enumerate}
+
+Question:
+$ S=\{1,2,3,4,5,6\}$. 1 and 5 are equally likely and probability of getting a 6 is one-third.
+
+Find minimum and maximum probability that we get an even number.
+
+Answer:$$ Minimum \;Prob. = \frac{1}{3} \;\; when \;\; P_2 = P_4 = 0$$
+$$ Maximum \;Prob. = 1,  \;\; P_2+P_4 =\frac{2}{3}  $$
+
+
 
 
 
