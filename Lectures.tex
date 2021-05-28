@@ -80,23 +80,24 @@ A sigma field (or sigma algebra) F is a collection of subsets of S which satisfi
     $$ F =\{ \phi,S\} $$
     \item Next non-trivial event space:
     $$ F=\{ \phi,E ,E^c ,S\}$$
-    \item If $E_1 \in F$ and $E_2 \in F$, then $E_1 \cap E_2 \in F$ (Proof given later for general case)
-    \item For S={1,2,3,4,5,6} , $E_1 ={1,2}$ and $E_2={3,4}$. The smallest event space containing $E_1$ and $E_2$ is:
-    $$ F={\phi , S, E_1 , E_{1}^{C},E_2 , E_{2}^{C},E_1 \bigcup E_2 , {E_{1} \bigcup E_{2}}^{C}}$$
+    \item If $E_1 \in F$ and $E_2 \in F$, then $E_1 \cap E_2 \in F$ (Proof in 1.4.3)
+    \item For S=$\{1,2,3,4,5,6\}$ , $E_1 ={1,2}$ and $E_2={3,4}$. The smallest event space containing $E_1$ and $E_2$ is:
+    $$ F=\{\phi , S, E_1 , E_{1}^{C},E_2 , E_{2}^{C},E_1 \cup E_2 , (E_{1} \cup E_{2})^{C}\}$$
 \end{itemize}
 
 \subsubsection{Proposition 1}
-If $\Sigma$ is a $\sigma$-algebra on $\Omega$, and A$_1$, A$_2$, A$_3$,....A$_n$ $\in$ $\Sigma$, then $\bigcap\limits_{i=1}^n$A$_i$ $\in$ $\Sigma$.
+A$_1$, A$_2$, A$_3$,....A$_n$ $\in$ $F$, then $\bigcap\limits_{i=1}^n$A$_i$ $\in$ $F$.
 
-\textbf{Proof: }If A$_1$, A$_2$, A$_3$,....A$_n$ $\in$ $\Sigma$, then A$_1^c$, A$_2^c$, A$_3^c$,....A$_n^c$ $\in$ $\Sigma$ and $\bigcup\limits_{i=1}^n$A$_i^c$ $\in$ $\Sigma$. Then by property 2, $(\bigcup\limits_{i=1}^n$A$_i^c)^c$ = $\bigcap\limits_{i=1}^n$A$_i$ $\in$ $\Sigma$.
+\textbf{Proof: }If A$_1$, A$_2$, A$_3$,....A$_n$ $\in$ $F$, then A$_1^c$, A$_2^c$, A$_3^c$,....A$_n^c$ $\in$ $F$ and $\bigcup\limits_{i=1}^n$A$_i^c$ $\in$ $F$. Then by property 2, $(\bigcup\limits_{i=1}^n$A$_i^c)^c$ = $\bigcap\limits_{i=1}^n$A$_i$ $\in$ $F$.
 
 \subsubsection{Proposition 2}
-If $\Sigma$ is a $\sigma$-algebra on $\Omega$ and A, B $\in$ $\Sigma$, then A$\setminus$B = A - B $\in$ $\Sigma$.\medskip
+A, B $\in$ $F$, then A$\setminus$B = A - B $\in$ $F$.\medskip
 
-\textbf{Proof: }If B $\in$ $\Sigma$, then B$^c$ $\in$ $\Sigma$ by  property 2. So, A $\cap$ B$^c$ = A$\setminus$B $\in$ $\Sigma$ (As seen in proposition 1).
+\textbf{Proof: }If B $\in$ $F$, then B$^c$ $\in$ $F$ by  property 2. So, A $\cap$ B$^c$ = A$\setminus$B $\in$ $F$ (As seen in proposition 1).
 
-\subsection{Probability Space}
-%incomplete
+\subsection{Probability Measure}
+The probability measure P is a function returning an event's probability. A probability is a real number between zero and one.
+$$ P:F\rightarrow [0,1]$$
 
 P has to satisfy the following 3 axioms:
 \begin{itemize}
@@ -106,7 +107,10 @@ P has to satisfy the following 3 axioms:
     $$ P(\bigcup_{i=1}^{\infty} E_{i})= \sum_{i=1}^{\infty} P(E_i)$$
 \end{itemize}
 
-$P(E_1 \cup E_2)= P(E_1)+P(E_2)+ \sum$%incomplete
+For two disjoint sets:
+$P(E_1 \cup E_2)= P(E_1)+P(E_2)+ \sum P(\phi)$
+
+We will later see that $P(\phi)$ is indeed 0.
 
 \subsection{Derived Properties of Probability}
 \begin{enumerate}
@@ -115,12 +119,14 @@ $P(E_1 \cup E_2)= P(E_1)+P(E_2)+ \sum$%incomplete
             $$P(E)+P(E^C)=1$$
 
     \item For any two events $E_1$ and $E_2$,
-    $$ P(E_1 \cup E_2)= P(E_1)+P(E_2)+P(E_1 \cap E_2)$$
+    $$ P(E_1 \cup E_2)= P(E_1)+P(E_2)-P(E_1 \cap E_2)$$
     Proof:
     $$ P(E_1 \cup E_2)=P(E_1)+P(E_2 \cap E_1^C)$$
     Now, $$ E_2=(E_2 \cap E_1)\cup (E_2 \cap E_1^C)$$
-
-    $$P(E_1 \cup E_2)= $$%inclomplete
+    $$ \Rightarrow P(E_2)=P(E_1 \cap E_2)+ P(E_1^C \cap E_2)$$
+    Also,
+    $$ P(E_1 \cup E_2)= P(E_1)+P(E_1^C \cap E_2)$$
+    Substitute the required value in the final equation.
 \end{enumerate}
 
 Question:
