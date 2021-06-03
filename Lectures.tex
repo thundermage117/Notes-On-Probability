@@ -261,8 +261,7 @@ $$ P(A_i/B) = \frac{P(A_i \cap B)}{P(B)}$$
 $$ = \frac{P(B/A_i)P(A_i)}{\sum_{i=1}^{n} P(B/A_i)P(A_i)}$$
 
 \subsubsection{Example}
-In answering a question in a multiple choice test, a student knows the answer with probability $p$ and guesses the answer otherwise. If he/she guesses from $m$ choices, the probability of
-%incomplete
+In answering a question in a multiple choice test, a student knows the answer with probability $p$ and guesses the answer otherwise. If he/she guesses from $m$ choices, the probability of being correct is $\frac{1}{m}$. Find the conditional probability that the student knew the answer if he/ she answered correctly.
 
 Ans: $A_1=$ knowing the answer. $A_2=$ Guessing the answer.
 
@@ -305,7 +304,7 @@ $$ P(B^c / A)= \frac{P(B^c \cap A)}{P(A)}= \frac{P(A)- P(A \cap B)}{P(A)}= \frac
     $$ S=\{ (H,1), (H,2), \cdots, (H,6), (T,1), \cdots, (T,6)\}$$
     $F=$ Power set of S (Always an event space)
 
-    $A=\{(H,1), \cdots, (H,6) \}$ %incomplete
+    $A=\{(H,1), \cdots, (H,6) \}$, $B= \{ (H,2), (H,4), (H,6), (T,2),(T,4),(T,6)$
 
     $P(A)= 1/2 \; \& \; P(B)= 1/2$
     $$ P(A \cap B)= P(\{ (H,2), (H,4), (H,6)\})= \frac{3}{12}= \frac{1}{4}$$
@@ -318,7 +317,7 @@ $$ P(B^c / A)= \frac{P(B^c \cap A)}{P(A)}= \frac{P(A)- P(A \cap B)}{P(A)}= \frac
 
     $P(A \cap B)= 0$, $P(A)P(B)= \frac{1}{4}$
 
-    Eg 3: (Not independent and not mutually exclusive) %incomplete hw
+    %Eg 3: (Not independent and not mutually exclusive) hw
 \end{enumerate}
 
 \subsection{Conditionally indepedent events}
@@ -326,7 +325,7 @@ $$ P(B^c / A)= \frac{P(B^c \cap A)}{P(A)}= \frac{P(A)- P(A \cap B)}{P(A)}= \frac
 $A \; \& \: B$ are said to be conditionally indepedent given $C$ if
 $$ P((A \cap B)/ C)= P(A/C)P(B/C)$$
 In terms of conditional probabilities,
-$$ P(B/C)= \frac{P((A\cap B )/ C)}{P(A/C)}= \frac{\frac{P(A \cap B \cap C)}{P(C)}}{\frac{P(A \cap C)}{P(C)}} = \frac{P(A\cap B\cap C)}{P(A \cap C)}$$ %incomplete
+$$ P(B/C)= \frac{P((A\cap B )/ C)}{P(A/C)}= \frac{\frac{P(A \cap B \cap C)}{P(C)}}{\frac{P(A \cap C)}{P(C)}} = \frac{P(A\cap B\cap C)}{P(A \cap C)} = P(B/(A \cap C))$$
 
 Indepedent Events: $P(A \cap B)= P(A)P(B)$ \& $P(B/A)= P(B)$.
 
@@ -335,15 +334,18 @@ Conditionally indepedent events: $P(A\cap B / C)= P(A/C)P(B/C)$ \& $P(B/(A\cap )
 \subsubsection{Example}
 Two fair coins are tossed, $S=\{HH, HT, TH, TT \}$, $A=\{HH, HT \} $, $B=\{HH, TH\} $, $C=\{HH \}$ \& $D=\{HT, TH\}$
 
-%incomplete
-
 \begin{enumerate}
-    \item
-    \item
+    \item Are $A$ \& $B$ independent?
+    $$ P(A \cap B)= P(\{HH\}) = \frac{1}{4}= P(A)P(B)$$
+    \item  Are $A$ \& $B$ conditionally indepedent given $C$?
+    $$ P((A \cap B) /C)= P(A/C)=P(B/C)= 1$$
+    $$ P(A/C)= \frac{P(A \cap C)}{P(C)}= \frac{\frac{1}{4}}{\frac{1}{4}}= 1$$
     \item Are $A$ \& $B$ conditionally indepedent given $D$?
 
     $$P(A/D)= \frac{P(A\cap D)}{P(D)}= \frac{\frac{1}{4}}{\frac{1}{2}}=\frac{1}{2} $$
-    %incomplete
+    $$P(B/D)= \frac{P(B\cap D)}{P(D)}= \frac{\frac{1}{4}}{\frac{1}{2}}=\frac{1}{2} $$
+    $$ P(A\cap B /D)= 0$$
+    Hence, they are not conditionally indepedent given $D$.
 \end{enumerate}
 
 If $A$ and $B$ are independent, it doesn't imply $A$ and $B$ will be conditionally indepedent given $C$ and vice-versa.
