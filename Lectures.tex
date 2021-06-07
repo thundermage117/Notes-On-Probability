@@ -1,4 +1,6 @@
 \documentclass{article}
+\usepackage{mathtools}
+\usepackage{amssymb}
 
 \begin{document}
 \section{Probability Space}
@@ -349,6 +351,169 @@ Two fair coins are tossed, $S=\{HH, HT, TH, TT \}$, $A=\{HH, HT \} $, $B=\{HH, T
 \end{enumerate}
 
 If $A$ and $B$ are independent, it doesn't imply $A$ and $B$ will be conditionally indepedent given $C$ and vice-versa.
+%4/6 notes
+\subsection{Indepedence of collection of events}
+
+Three events $A_1, A_2$ \& $A_3$ are said to be indepedent if:
+
+$$ P(A_1 \cap A_2 \cap A_3)=P(A_1)P(A_2)P(A_3)$$
+$$ P(A_1 \cap A_2)=P(A_1)P(A_2)\quad P(A_2 \cap A_3)=P(A_2)P(A_3)\quad P(A_3 \cap A_1)=P(A_3)P(A_1)$$
+
+
+
+\subsubsection{Chain rule of Probability}
+$$ P(A_1 \cap A_2 \cap A_3)=P(A_1)P(A_2/A_1)P(A_3/A_1\cap A_2)$$
+$$ P(\bigcap_{i=1}^n A_i)=P(A_1) \prod_{i=2}^n P(A_i/A_1\cdots A_{i-1})$$
+For independent events $A_1, A_2, A_3$.
+$$P(A_1)P(A_2/A_1)P(A_3/(A_1 \cap A_2))= P(A_1)P(A_2)P(A_3)$$
+$$\Rightarrow P(A_2/A_1)P(A_3/(A_1 \cap A_2))= P(A_2)P(A_3)$$
+
+Hence, if $A_1$, $A_2$, $A_3$ are independent events, the first condition doesn't imply the other conditions.
+
+Eg: Pair-wise independence does not imply that three events are independent.
+Consider example of two coin tosses:
+$S= \{HH,HT,TH,TT\}, A_1=\{HH,HT\},A_2=\{HH,TH\},A_3=\{HT,TH\}$.
+
+$A_1$ \& $A_2$ are indepedent $P(A_1 \cap A_2)=P(A_1)P(A_2)$
+
+$A_2$ \& $A_3$ are indepedent $P(A_3 \cap A_2)=P(A_3)P(A_2)$
+
+$A_1$ \& $A_3$ are indepedent $P(A_1 \cap A_3)=P(A_1)P(A_3)$
+
+$A_1$, $A_2$  \& $A_3$ are not still not independent as $P(A_1 \cap A_2 \cap A_3) \neq P(A_1)P(A_2)P(A_3)$.
+
+\section{Continuity of Probability}
+$\Omega$ is an equivalent notation for sample space.
+
+Consider the probability space $(S,F,P)$.
+
+$E_i \in F$. Let $E_1 \subseteq E_2 \subseteq \cdots$ be countably infinite sequence of events (increasing sequence of events).
+Then $$P(\bigcup_{i=1}^{\infty} E_i)= \lim_{i \to \infty} P(E_i)$$.
+$$ \bigcup_{i=1}^{\infty} E_i \in F$$
+Pushing the limit from inside the probability expression to outside.
+
+$$P(\bigcup_{i=1}^{\infty} E_i)=\lim_{i \to \infty }P(E_i)$$
+$$P(\lim_{n \to \infty} \bigcup_{i=1}^{n}E_i)=\lim_{i \to \infty }P(E_i)$$%incomplete
+
+Exchanging limits with probability $\rightarrow$ non trivial operation.
+Exchanging limits with differentiation, integration etc. $\rightarrow$ require a proof.
+
+\begin{itemize}
+    \item $$E_1 \subseteq E_2 \subseteq \cdots$$
+    $$P(\bigcup_{i=1}^{\infty} E_i)= \lim_{i \to \infty} P(E_i)$$
+
+    Proof:
+    We shall use the third axiom.
+    $D_1, D_2 \cdots \rightarrow$ mutually exclusive events.
+
+    $$ P(\bigcup_{i=1}^{\infty} D_i)= \sum_{i=1}^{\infty}P(D_i)$$
+
+    $E_1 \subseteq E_2 \subseteq \rightarrow $ not mutually exclusive.
+
+    Hence we construct a sequence which are mututally exclusive and unions of both sequences have to be the same.
+
+    $A_1=E_1$, $A_2=E_2\setminus E_1$, $ A_3=E_3 \setminus E_2$ , $\cdots$.
+    $$ P(\bigcup_{i=1}^{\infty} E_i)= P(\bigcup_{i=1}^{\infty} A_i)= \sum_{i=1}^{\infty}P(A_i)= \lim_{n \to \infty} \sum_{i=1}^{\infty}P(A_i)$$
+
+    $$\Rightarrow \lim_{n \to \infty} \sum_{i=1}^{n} P(A_i)= \lim_{n \to \infty} P(\bigcup_{i=1}^{n}A_i)= \lim_{n \to \infty}P(E_n)$$
+    If there exists a subsequence of events, which is increasing.
+
+    \item Let $E_1 \supseteq E_2 \supseteq \cdots$ be a countably infinte sequence of events(decreasing sequence of events)
+
+    $$P(\bigcap_{i=1}^{\infty}E_i)=\lim_{i \to \infty} P(E_i)$$
+
+    Proof: We can use the result of the previous proof.
+    $$ E_1^c \subseteq E_2^c \subseteq \cdots$$
+    which is an increasing set of events
+    $$P(\bigcup_{i=1}^{\infty} E_i^c)= \lim_{i \to \infty}P(E_i^c)$$
+    as,
+    $$ \left(\bigcap_{i=1}^{\infty} E_i \right)= \left( \bigcup_{i=1}^{\infty} E_i^c \right)^c $$
+
+    $$\Rightarrow 1- P(\bigcup_{i=1}^{\infty} E_i^c)= \lim_{i \to \infty}1- P(E_i^c)$$
+
+    $$P \left(\bigcap_{i=1}^{\infty} E_i \right) = \lim_{i \to \infty }P(E_i)$$
+
+
+\end{itemize}
+
+%4/6  \subsection{Example of continuity of probability}
+
+%7/6 lecture 6
+
+\section{Random Variables}
+
+Consider a probability space $(S,F,P)$ and an experiment is conducted.
+
+Probability spaces vary a lot based on the experiment. To be able to develop a theory of probability which is indepedent of the actual experiment which is performed.
+
+$$S \xrightarrow[]{\text{R.V.}} \mathbb{R}$$
+$$F \xrightarrow[]{\text{R.V.}} B$$
+%incomplete
+
+Random Variable is a function which maps the sample space to the real line.
+It also maps the event space to the Borel $\sigma$-algebra, $B$.
+%incomplete
+
+\subsection{Borel $\sigma$-algebra}
+It is the smallest $\sigma$- algebra which contains sets of the form $(-\infty ,x]\; \forall x \in \; \mathbb{R}$.
+
+$$ B=\{ \mathbb{R} , (-\infty ,x] ,(x,\infty ), \phi, (-\infty,x) ,(x,y),[x,y], \{x\},(x,y],[x,y)\}$$
+
+$$ E_i =(-\infty ,x_i] \quad x_i = x-\frac{1}{i}$$
+$$ \bigcup_{i=1}^{\infty}(-\infty ,x_i] = \bigcup_{i=1}^{\infty} E_i =$$
+%incomplete
+
+Random Variable $X:S \rightarrow R$
+
+$X$ has to be a measurable function.
+
+A function is said to be%incomplete
+
+eg:
+$ X: \{1,2,3,4,5,6\} \rightarrow \{0,1,0,1,0,1 \}$
+
+$$X^-1\left( (-\infty, 0.5]\right)=\{1,3,5\}$$
+
+In the above example, $X$ is not an invertible mapping. We are using $X^-1$ as a notation.
+
+$X$ is a map from $S$ to $\mathbb{R}$ such that
+$$X:S \rightarrow \mathbb{R}$$
+$$ X^-1\left( (-\infty, x ]\right) \leftarrow $$
+%incomplete
+
+\subsection{Examples}
+\begin{itemize}
+    \item X which is a random variable.
+
+    $S= \{a,b,c\}\; ,\; F=\{ \phi, \{ a\}, \{b,c \}, S\}\; , \; X:S \rightarrow \mathbb{R}$
+
+    $X(\omega) =0\; ,\; \omega =a $
+
+    $X(\omega)= 1\;,\; \omega = b,c$
+    \begin{enumerate}
+        %incomplete
+        \item
+        \item
+        \item $( -\infty,x]\;,\; x \geq 1\;,\; X^{-1}\left( (-\infty , x]\right) = S \in F$
+    \end{enumerate}
+
+    \item X which is not a random variable
+    $S= \{a,b,c\}\; ,\; F=\{ \phi, \{ a\}, \{b,c \}, S\}\; , \; X:S \rightarrow \mathbb{R}$
+
+    $X(\omega) =0\; ,\; \omega =b $
+
+    $X(\omega)= 1\;,\; \omega = a,c$
+
+    But $X^{-1}((-\infty,x])\; , \;0\leq x<1 = \{b\} \; , \; \{ b\} \notin F$
+
+    $X$ is not a random variable.
+\end{itemize}
+
+If $S$ is finite \& $F$ is a power set of $S$, then every function is a random variable.
+$$ X^{-1}((-\infty,x]) \subseteq S$$
+
+$F$ is set of all subsets of $S$.
+
 
 
 
