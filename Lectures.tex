@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{mathtools}
 \usepackage{amssymb}
+\usepackage{amsmath}
 
 \begin{document}
 \section{Probability Space}
@@ -13,8 +14,7 @@ well-defined set of possible outcomes, known as the sample space.
 The observation/result of the experiment are termed as outcomes.
 
 \subsection{Classical Approach}
-        Probability of an event $E$ is defined to be: $$P(E)=\frac{Number\; of\;
-         outcomes\;in\; E}{Total\; number\; of\; outcomes}$$
+        Probability of an event $E$ is defined to be: $$P(E)=\frac{\text{Number of outcomes in }E}{\text{Total number of outcomes}}$$
          Some examples are tossing a coin or rolling a die.
          Disadvantages:
          \begin{itemize}
@@ -511,6 +511,90 @@ If $S$ is finite \& $F$ is a power set of $S$, then every function is a random v
 $$ X^{-1}((-\infty,x]) \subseteq S$$
 
 $F$ is set of all subsets of $S$.
+
+%9/6
+\subsection{Theorem}
+
+Let a probability space be $(S,F,P)$ and $X$ is a random variable $X: S \rightarrow \mathbb{R}$.
+The following conditions hold:
+\begin{itemize}
+    \item $X^{-1}((-\infty,x)) \in F$
+    \item $X^{-1} (\{x\}) \in F$
+    \item $X^{-1}((x_1 , x_2]) \in F$
+    \item $X^{-1} ((x_1,x_2)) \in F$
+\end{itemize}
+
+Proof: Applying the axioms of the event space we want to show the above conditions are true.
+
+$A_i=X^{-1}((-\infty,x]) \qquad x_i = x - \frac{1}{i}$. Now,
+$$ \bigcup_{i=1}^{\infty} (-\infty,x_i] = (-\infty,x)$$
+
+$$ \bigcup_{i=1}^{\infty} A_i = \bigcup_{i=1}^{\infty} X^{-1}((-\infty,x_i]) = X^{-1}((-\infty,x)) \in F$$
+
+$$ X^{-1}((-\infty ,x] \cap {(-\infty,x)}^c) = X^{-1} (\{x\}) \in F$$
+
+Similarly the other conditions can also be proved.
+
+\subsection{Cumulative distribution function}
+It is denoted by $F_X(x)$.
+
+$$ F_X(x)= P(X \leq x) = P((-\infty, x])= P(X^{-1}((-\infty, x]))$$
+
+The above definitions are different notations used, the last one is well defined from the probability space.
+
+\subsection{Properties of CDF}
+
+\begin{enumerate}
+    \item $F_X(x)$ is a non-decreasing function of x.
+
+    Proof: If $x_2 \geq x_1$, then $F_X(x_2) \geq F_X(x_1)$.
+
+    $$F_X(x_2) = P(X \leq x_2)= P(X \leq x_1)+P(x_1 < X \leq x_2)$$
+    $$F_X(x_2) = P(X \leq x_2) \geq P(X \leq x_1) -F_X(x_1) $$
+
+    \item $\lim_{x \to \infty} F_X(x)= 1$
+
+    Proof: Construct a decreasing set of events. $A_i= (-\infty, i]$, $B_i = X^{-1}(A_i)$.
+    $$ \bigcap_{i=1}^{\infty}A_i= \mathbb{R}$$
+    $$ \bigcap_{i=1}^{\infty}B_i= S $$
+
+    Applying continuity of probability,
+    $$ \lim_{i \to \infty}P(B_i)= P(\bigcup_{i=1}^{\infty}B_i) =P(S) = 0$$
+    $$ \lim_{i \to \infty}P(X \leq i)= \lim_{x \to \infty}P(X \leq x) = \lim_{x \to \infty} F_X(x)$$
+
+    The change from integers to real numbers $x$ in the last step is valid.
+
+    \item $\lim_{x \to -\infty} F_X(x)= 0$
+
+    Proof: Construct a decreasing set of events. $A_i= (-\infty, -i]$, $B_i = X^{-1}(A_i)$.
+    $$ B_1 \supseteq B_2 \supseteq \cdots$$
+
+    $$ \bigcap_{i=1}^{\infty}B_i= \phi $$
+    $$ P(\bigcap_{i=1}^{\infty}B_i) = \lim_{i \to \infty}P(B_i)= 0$$
+    $$  \lim_{i \to \infty}P(B_i) =  \lim_{i \to \infty}P((-\infty,i])= \lim_{x \to \infty}P((-\infty,x]) \rightarrow \text{(x = all real nos.)}$$
+    $$ \lim_{x \to \infty}P((-\infty,x]) = \lim_{x \to \infty}F_X(x)= 0$$
+
+
+\end{enumerate}
+
+\subsection{Indicator Random Variable}
+\begin{equation*}
+    I_A (x)=
+    \begin{cases}
+      1, & \text{if}\ x \in A \\
+      0, & \text{if}\ x \notin A
+    \end{cases}
+\end{equation*}
+
+$$I_A:S \to \mathbb{R}$$
+
+$$ F_{I_{A}} (x)= P(I_A \leq x)$$
+
+If $x < 0 $, $P(I_A \leq x)= 0$.
+
+If $0 \leq x <1 $, $P(I_A \leq x)= 1-P(A)$.
+
+If $x \geq 1 $, $P(I_A \leq x)= 1$.
 
 
 
