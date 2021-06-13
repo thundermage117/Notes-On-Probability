@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1623241152 "Lectures.tex" "Lectures.pdf" "Lectures" 1623241242
-  "Lectures.aux" 1623241154 3730 d9d1c44702976382ef7ffe106283e6ee "pdflatex"
-  "Lectures.tex" 1623241151 23290 76032d7af1943465e9e14799da2616b3 ""
+["pdflatex"] 1623585650 "Lectures.tex" "Lectures.pdf" "Lectures" 1623585652
+  "Lectures.aux" 1623585652 3850 60ead161af6344323fcd7f9308236c4d "pdflatex"
+  "Lectures.tex" 1623585648 25557 acc0f479c041ad1c3d70a887fdce727c ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1622125359 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1622125719 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1622125567 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -33,8 +33,10 @@
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1622125086 37912 07513ec114ac737ab54cea0152f4424b ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1622125086 36281 c355509802a035cadc5f15869451dcee ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1622125086 35752 024fb6c41858982481f6968b5fc26508 ""
+  "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1622125086 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1622125086 32762 7fee39e011c23b3589931effd97b9702 ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1622125086 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1622125086 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1622125086 32716 08e384dc442464e7285e891af9f45947 ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1622125086 34694 870c211f62cb72718a00e353f14f254d ""
   "c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1622125359 138258 6525c253f16cededa14c7fd0da7f67b2 ""
@@ -67,6 +69,6 @@
   "c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1622127488 2724559 9f91299e925066be684294a8e576ca59 ""
   "c:/texlive/2021/texmf.cnf" 1622127312 713 e69b156964470283e0530f5060668171 ""
   (generated)
-  "Lectures.aux"
   "Lectures.log"
   "Lectures.pdf"
+  "Lectures.aux"

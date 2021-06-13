@@ -535,7 +535,7 @@ $$ X^{-1}((-\infty ,x] \cap {(-\infty,x)}^c) = X^{-1} (\{x\}) \in F$$
 
 Similarly the other conditions can also be proved.
 
-\subsection{Cumulative distribution function}
+\section{Cumulative distribution function}
 It is denoted by $F_X(x)$.
 
 $$ F_X(x)= P(X \leq x) = P((-\infty, x])= P(X^{-1}((-\infty, x]))$$
@@ -545,7 +545,7 @@ The above definitions are different notations used, the last one is well defined
 \subsection{Properties of CDF}
 
 \begin{enumerate}
-    \item $F_X(x)$ is a non-decreasing function of x.
+    \item $F_X(x)$ is a monotonically non-decreasing function of x.
 
     Proof: If $x_2 \geq x_1$, then $F_X(x_2) \geq F_X(x_1)$.
 
@@ -573,7 +573,25 @@ The above definitions are different notations used, the last one is well defined
     $$ P(\bigcap_{i=1}^{\infty}B_i) = \lim_{i \to \infty}P(B_i)= 0$$
     $$  \lim_{i \to \infty}P(B_i) =  \lim_{i \to \infty}P((-\infty,i])= \lim_{x \to \infty}P((-\infty,x]) \rightarrow \text{(x = all real nos.)}$$
     $$ \lim_{x \to \infty}P((-\infty,x]) = \lim_{x \to \infty}F_X(x)= 0$$
+%11/6
+    \item $F_X(x)$ is a right continuous function.
+    $$ \lim_{x \to x_0^+} F_X(x)= F_X(x_0)$$
 
+    Right continuous function: $\lim_{x \to x_0^+} f(x)= f(x_0)$
+
+    Left continuous function: $\lim_{x \to x_0^-} f(x)= f(x_0)$
+
+    Continuous function(Approaching from either left or right): $\lim_{x \to x_0} f(x)= f(x_0)$
+
+    Proof: Decreasing sequence of events $B_i= (X \leq x+\frac{1}{i})$
+
+    $$ B_1 \supseteq B_2 \supseteq \cdots$$
+    $$ \bigcap_{i=1}^{\infty}B_i= \{ X \leq x\}$$
+    $$ P(\bigcap_{i=1}^{\infty}B_i) = P(X \leq x) = F_X(x)$$
+    $$ \Rightarrow \lim_{i \to \infty}P(B_i)= \lim_{i \to \infty}P(X \leq x + \frac{1}{i})$$
+    We are changing the variable from an integer to real.
+    $$= \lim_{\epsilon \to 0}P(X \leq x + \epsilon)=\lim_{\epsilon \to 0^+}F_X(x + \epsilon) $$
+    $$ = \lim_{x_0 \to x^+}F_X(x_0) \quad \text{Change of variable: }x_0= x+ \epsilon $$
 
 \end{enumerate}
 
@@ -592,10 +610,56 @@ $$ F_{I_{A}} (x)= P(I_A \leq x)$$
 
 If $x < 0 $, $P(I_A \leq x)= 0$.
 
-If $0 \leq x <1 $, $P(I_A \leq x)= 1-P(A)$.
+If $0 \leq x <1 $, $P(I_A \leq x)= P(A^c)=1-P(A)$.
 
 If $x \geq 1 $, $P(I_A \leq x)= 1$.
 
+$$ \lim_{x \to 0^+} F_{I_A}(x)= P(A^c) \qquad F_{I_A}(0)= P(A^c)$$
+
+$$ \lim_{x \to 1^+} F_{I_A}(x)= 1 \qquad F_{I_A}(1)= 1$$
+
+\subsection{Examples of CDF's and non-CDF's}
+\begin{itemize}
+    \item Is $F_1(x)$ a valid CDF?
+    \begin{equation*}
+        F_1 (x)=
+        \begin{cases}
+          1, & \text{if}\ x \leq 0 \\
+          0.5, & \text{if}\ 0<x\leq 1 \\
+          0.25+0.25x, & \text{if}\ 1<x\leq 3 \\
+          1, & \text{if}\ 3<x
+        \end{cases}
+    \end{equation*}
+
+    No, as it is not right continuous at $x=0$.
+
+    $$ \lim_{x=0^+}F_1(x)=0.5, \quad F_1(0)=0$$
+
+    \item Is $F_2(x)$ a valid CDF?
+    \begin{equation*}
+        F_2 (x)=
+        \begin{cases}
+          0, & \text{if}\ x < 0 \\
+          0.5, & \text{if}\ 0\leq x < 1 \\
+          0.75, & \text{if}\ 1\leq x < 3 \\
+          1, & \text{if}\ 3\leq x
+        \end{cases}
+    \end{equation*}
+    It is valid as it satisfies all 4 properties.
+
+    \item Is $F_3(x)$ a valid CDF?
+    \begin{equation*}
+        F_3 (x)=
+        \begin{cases}
+          1, & \text{if}\ x < 0 \\
+          0.5, & \text{if}\ 0 \leq x < 1 \\
+          0.25, & \text{if}\ 1\leq x < 3 \\
+          1, & \text{if}\ 3 \leq x
+        \end{cases}
+    \end{equation*}
+    $F_3(x)$ is not a valid CDF as it is not non-decreasing.
+
+\end{itemize}
 
 
 
