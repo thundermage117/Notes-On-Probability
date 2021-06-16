@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.27)  13 JUN 2021 17:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.27)  16 JUN 2021 09:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -195,22 +195,24 @@ e
 \Gin@req@height=\dimen160
 \Gin@req@width=\dimen161
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
-
-
-(c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
+(./Lectures.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+ (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
 
 (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+))
+\tf@toc=\write3
+\openout3 = `Lectures.toc'.
+
+ [1
 
 {c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
- [6] [7]
-Overfull \hbox (14.41782pt too wide) in paragraph at lines 334--335
+ [6] [7] [8]
+Overfull \hbox (14.41782pt too wide) in paragraph at lines 338--339
 []\OT1/cmr/m/n/10 Conditionally in-de-pe-dent events: $\OML/cmm/m/it/10 P\OT1/c
 mr/m/n/10 (\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 B=C\OT1/cmr/m
 /n/10 ) = \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A=C\OT1/cmr/m/n/1
@@ -219,8 +221,8 @@ $\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B=\OT1/cmr/m/n/10 (\OML/cm
 m/m/it/10 A\OMS/cmsy/m/n/10 \\OT1/cmr/m/n/10 ))$ 
  []
 
-[8]
-Overfull \hbox (19.11504pt too wide) detected at line 360
+[9]
+Overfull \hbox (19.11504pt too wide) detected at line 364
 \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[] \OMS/cmsy/m/n/10 \ \OML
 /cmm/m/it/10 A[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm
 /m/it/10 A[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
@@ -233,8 +235,8 @@ m/n/10 (\OML/cmm/m/it/10 A[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 P\OT1/cmr/m/n/10
 /cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[]\OT1/cmr/m/n/10 )
  []
 
-[9]
-Overfull \hbox (23.36171pt too wide) in paragraph at lines 383--384
+[10]
+Overfull \hbox (23.36171pt too wide) in paragraph at lines 387--388
 []$\OML/cmm/m/it/10 A[]$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 A[]$ \OT1/cmr/m/n/1
 0 & $\OML/cmm/m/it/10 A[]$ \OT1/cmr/m/n/10 are not still not in-de-pen-dent as 
 $\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[] \OMS/cmsy/m/n/10 \ \OM
@@ -245,8 +247,8 @@ t/10 A[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[
 mr/m/n/10 )$. 
  []
 
-[10] [11]
-Overfull \hbox (5.017pt too wide) in paragraph at lines 498--500
+[11] [12]
+Overfull \hbox (5.017pt too wide) in paragraph at lines 502--504
 []\OT1/cmr/m/n/10 X which is not a ran-dom vari-able $\OML/cmm/m/it/10 S \OT1/c
 mr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 a; b; c\OMS/cmsy/m/n/10 g \OML/c
 mm/m/it/10 ;  F \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 ^^^; \OMS/
@@ -255,41 +257,41 @@ cmsy/m/n/10 f\OML/cmm/m/it/10 a\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m
 /10 g \OML/cmm/m/it/10 ;  X \OT1/cmr/m/n/10 :
  []
 
-[12] [13] [14]
-Overfull \hbox (4.99371pt too wide) in paragraph at lines 584--585
+[13] [14] [15]
+Overfull \hbox (4.99371pt too wide) in paragraph at lines 588--589
 []\OT1/cmr/m/n/10 Continuous func-tion(Approaching from ei-ther left or right):
  $[][] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) =
 
  []
 
-[15] [16] (./Lectures.aux) ) 
+[16] [17] [18] [19] (./Lectures.aux) ) 
 Here is how much of TeX's memory you used:
- 2900 strings out of 478994
- 40519 string characters out of 5862207
- 339332 words of memory out of 5000000
- 20375 multiletter control sequences out of 15000+600000
+ 2905 strings out of 478994
+ 40567 string characters out of 5862207
+ 341332 words of memory out of 5000000
+ 20377 multiletter control sequences out of 15000+600000
  411329 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  81i,13n,88p,331b,238s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-supe
-r/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texl
-ive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2021/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2021/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
-><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texl
-ive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2021/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/
-fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2021/texmf-dist/font
-s/type1/public/cm-super/sfrm1000.pfb>
-Output written on Lectures.pdf (16 pages, 189617 bytes).
+{c:/texlive/2021/texmf-dist/fonts/enc/dvi
+ps/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pf
+b><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/tex
+live/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2021
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2021/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texl
+ive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2021/texmf
+-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on Lectures.pdf (19 pages, 198842 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
+ 127 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -4,6 +4,10 @@
 \usepackage{amsmath}
 
 \begin{document}
+
+\tableofcontents
+\newpage
+
 \section{Probability Space}
 There are often various approaches to probability each with its own advantages
 and disadvantages.
@@ -661,9 +665,77 @@ $$ \lim_{x \to 1^+} F_{I_A}(x)= 1 \qquad F_{I_A}(1)= 1$$
 
 \end{itemize}
 
+%incomplete
+%14/6
 
+Corollary: $F_X(.)$ is left continuous if and only if $P(X=x)=0 \; \forall \; x \in \mathbb{R} $. From lemma,
 
+$$ P(X=x)= F_X(x)- \lim_{\epsilon \to 0^+ }F_X(x-\epsilon)$$
 
+A function is left continuous if
+
+$$  \lim_{\epsilon \to 0^+}F_X(x - \epsilon)= F_X(x) \quad \forall$$
+%incomplete
+
+\subsection{Types of Random Variables}
+\begin{itemize}
+    \item Continuous random variable
+    \item Discrete random variable
+    \item Mixed random variable
+\end{itemize}
+
+\subsubsection{Continuous random variables}
+A random variable $X$ with cummulative distribution function $F_X(.)$ is said to be a continuous random variable if $F_X(.)$ is continuous.
+
+$P(X=x)=0 \quad \forall \; x \in \mathbb{R}$, probability of every point is zero.
+%incomplete
+
+In the context of a continuous random variable, we need to ask what is the probability of intervals or unions of intervals: $ P(a \leq X \leq b)$
+
+If $F_X(.)$ is differentiable, given that it is continuous we can find a
+%incomplete
+
+$$ f_X(x)= \frac{dF_X(x)}{dx}$$
+
+$f_X(x)$ is called the probability distribution function (pdf).
+%incomplete
+
+$$ F_X(a)= P(X \leq a)= \int_{-\infty}^{a}f_X(x)dx$$
+
+$$  P(a \leq X \leq b)=F_X(b)-F_X(a) = \int_{a}^{b}f_X(x)dx$$
+
+$$ P(x \leq X \leq x + \Delta x) \to \Delta x\text{ is very small(infintesimal)}$$
+$$ P(x \leq X \leq x + \Delta x) \approx$$
+%incomplete
+
+\subsubsection{When is a function a valid probability distribution function?}
+Two properties:
+\begin{itemize}
+    \item $f_X(x) \geq 0$
+
+    As CDF is monotonically non decreasing, it's derivative is always non-negative.
+    \item $ \int_{-\infty}^{\infty}f_X(x)dx= 1 \to \quad P(X \leq \infty )= F_X(\infty)=1$
+\end{itemize}
+
+Note: $f_X(.) \nleq 1$
+
+The probability distribution function itself doesn't indicate any probability. Only the area under it's curve indicates probability.
+
+\subsubsection{Discrete random variable}
+
+$X$ is said to be a discrete random variable if the range of $X$ is either finite or countably infinite in $\mathbb{R}$.
+$$ X:S \to \mathbb{R}$$
+
+CDF of a discrete random variable will be constant everywhere and jumps at some points(finite or countably infinite number of points).
+
+Range of $X={x_1,x_2,\cdots}$
+
+Discrete random variables can take non-zero values unlike the continuous r.v's.
+
+$$ F_X(a)= \sum_{x_i \leq a}P(X= x_i)$$
+
+$$ P(X=x_i)= P_X(x_i)\qquad x_i \text{ is in the range of X.}$$
+%incomplete
 
 
 \end{document}
