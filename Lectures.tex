@@ -2,8 +2,13 @@
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{amsthm}
 
 \begin{document}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
 
 \tableofcontents
 \newpage
@@ -87,20 +92,23 @@ A sigma field (or sigma algebra) F is a collection of subsets of S which satisfi
     \item Next non-trivial event space:
     $$ F=\{ \phi,E ,E^c ,S\}$$
     \item If $E_1 \in F$ and $E_2 \in F$, then $E_1 \cap E_2 \in F$ (Proof in 1.4.3)
-    \item For S=$\{1,2,3,4,5,6\}$ , $E_1 ={1,2}$ and $E_2={3,4}$. The smallest event space containing $E_1$ and $E_2$ is:
+    \item For S=$\{1,2,3,4,5,6\}$ , $E_1 =\{1,2\}$ and $E_2=\{3,4\}$. The smallest event space containing $E_1$ and $E_2$ is:
     $$ F=\{\phi , S, E_1 , E_{1}^{C},E_2 , E_{2}^{C},E_1 \cup E_2 , (E_{1} \cup E_{2})^{C}\}$$
 \end{itemize}
 
 \subsubsection{Proposition 1}
 A$_1$, A$_2$, A$_3$,....A$_n$ $\in$ $F$, then $\bigcap\limits_{i=1}^n$A$_i$ $\in$ $F$.
 
-\textbf{Proof: }If A$_1$, A$_2$, A$_3$,....A$_n$ $\in$ $F$, then A$_1^c$, A$_2^c$, A$_3^c$,....A$_n^c$ $\in$ $F$ and $\bigcup\limits_{i=1}^n$A$_i^c$ $\in$ $F$. Then by property 2, $(\bigcup\limits_{i=1}^n$A$_i^c)^c$ = $\bigcap\limits_{i=1}^n$A$_i$ $\in$ $F$.
+\begin{proof}
+    If A$_1$, A$_2$, A$_3$,....A$_n$ $\in$ $F$, then A$_1^c$, A$_2^c$, A$_3^c$,....A$_n^c$ $\in$ $F$ and $\bigcup\limits_{i=1}^n$A$_i^c$ $\in$ $F$. Then by property 2, $(\bigcup\limits_{i=1}^n$A$_i^c)^c$ = $\bigcap\limits_{i=1}^n$A$_i$ $\in$ $F$.
+\end{proof}
 
 \subsubsection{Proposition 2}
 A, B $\in$ $F$, then A$\setminus$B = A - B $\in$ $F$.\medskip
 
-\textbf{Proof: }If B $\in$ $F$, then B$^c$ $\in$ $F$ by  property 2. So, A $\cap$ B$^c$ = A$\setminus$B $\in$ $F$ (As seen in proposition 1).
-
+\begin{proof}
+    If B $\in$ $F$, then B$^c$ $\in$ $F$ by  property 2. So, A $\cap$ B$^c$ = A$\setminus$B $\in$ $F$ (As seen in proposition 1).
+\end{proof}
 \subsection{Probability Measure}
 The probability measure P is a function returning an event's probability. A probability is a real number between zero and one.
 $$ P:F\rightarrow [0,1]$$
@@ -121,18 +129,21 @@ We will later see that $P(\phi)$ is indeed 0.
 \subsection{Derived Properties of Probability}
 \begin{enumerate}
     \item $$P(E^C)=1-P(E)$$
-        Proof:$$E \cup E^C = S$$
-            $$P(E)+P(E^C)=1$$
+        \begin{proof}
+            $$E \cup E^C = S$$
+                $$P(E)+P(E^C)=1$$
 
+        \end{proof}
     \item For any two events $E_1$ and $E_2$,
     $$ P(E_1 \cup E_2)= P(E_1)+P(E_2)-P(E_1 \cap E_2)$$
-    Proof:
-    $$ P(E_1 \cup E_2)=P(E_1)+P(E_2 \cap E_1^C)$$
-    Now, $$ E_2=(E_2 \cap E_1)\cup (E_2 \cap E_1^C)$$
-    $$ \Rightarrow P(E_2)=P(E_1 \cap E_2)+ P(E_1^C \cap E_2)$$
-    Also,
-    $$ P(E_1 \cup E_2)= P(E_1)+P(E_1^C \cap E_2)$$
-    Substitute the required value in the final equation.
+    \begin{proof}
+        $$ P(E_1 \cup E_2)=P(E_1)+P(E_2 \cap E_1^C)$$
+        Now, $$ E_2=(E_2 \cap E_1)\cup (E_2 \cap E_1^C)$$
+        $$ \Rightarrow P(E_2)=P(E_1 \cap E_2)+ P(E_1^C \cap E_2)$$
+        Also,
+        $$ P(E_1 \cup E_2)= P(E_1)+P(E_1^C \cap E_2)$$
+        Substitute the required value in the final equation.
+    \end{proof}
 \end{enumerate}
 
 Question:
@@ -226,14 +237,17 @@ $$ \bigcup_{i=1}^{n} A_i =S$$
 
 $$ P(B)= \sum_{i=1}^{n} P(B/A_i)P(A_i)$$
 
-Expresses $ P(B)$  in terms of conditional probability $ P(B/A_i) $ \& prior probability $P(A_i)$
+the total probability theorem expresses $ P(B)$  in terms of conditional probability $ P(B/A_i) $ \& prior probability $P(A_i)$
+\begin{proof}
 
-Proof:
-$$ B= \bigcup_{i=1}^{n} (B \cap A_i)$$
+    $$ B= \bigcup_{i=1}^{n} (B \cap A_i)$$
 
-$A_i$'s are disjoint, so $(B \cap A_i)$ are also disjoint.
+    $A_i$'s are disjoint, so $(B \cap A_i)$ are also disjoint.
 
-$$ P(B)= \sum_{i=1}^{n} P(B \cap A_i)=\sum_{i=1}^{n} P(B / A_i)P(A_i)$$
+    $$ P(B)= \sum_{i=1}^{n} P(B \cap A_i)=\sum_{i=1}^{n} P(B / A_i)P(A_i)$$
+
+
+\end{proof}
 
 \subsection{Question}
 Two factories manufacture zoggles. 20\% of $F_1$ are defective. 5\% of $F_2$ are defective.
@@ -262,9 +276,12 @@ In some experiments $P(A_i)$ are all same, $P(A_i)=1/n$. Then posterior probabil
 $$ P(A_i/B)= \frac{P(B/A_i)}{\sum_{i=1}^n P(B/A_i)}$$
 $$ \Rightarrow P(A_i/B) \propto P(B/A_i)$$
 
-Proof:
-$$ P(A_i/B) = \frac{P(A_i \cap B)}{P(B)}$$
-$$ = \frac{P(B/A_i)P(A_i)}{\sum_{i=1}^{n} P(B/A_i)P(A_i)}$$
+\begin{proof}
+
+    $$ P(A_i/B) = \frac{P(A_i \cap B)}{P(B)}$$
+    $$ P(A_i/B)= \frac{P(B/A_i)P(A_i)}{\sum_{i=1}^{n} P(B/A_i)P(A_i)}$$
+
+\end{proof}
 
 \subsubsection{Example}
 In answering a question in a multiple choice test, a student knows the answer with probability $p$ and guesses the answer otherwise. If he/she guesses from $m$ choices, the probability of being correct is $\frac{1}{m}$. Find the conditional probability that the student knew the answer if he/ she answered correctly.
@@ -293,8 +310,9 @@ Knowledge of occurence of event $A$ does not give any information about $B$.
 If $A\; \&\; B $ are independent, then
 $ A \;\&\; B^c$ are also independent.
 
-Proof:
-$$ P(B^c / A)= \frac{P(B^c \cap A)}{P(A)}= \frac{P(A)- P(A \cap B)}{P(A)}= \frac{P(A)- P(A)P(B)}{P(A)} = P(B^c)$$
+\begin{proof}
+    $$ P(B^c / A)= \frac{P(B^c \cap A)}{P(A)}= \frac{P(A)- P(A \cap B)}{P(A)}= \frac{P(A)- P(A)P(B)}{P(A)} = P(B^c)$$
+\end{proof}
 
 \subsection{Important Results}
 \begin{enumerate}
@@ -305,26 +323,29 @@ $$ P(B^c / A)= \frac{P(B^c \cap A)}{P(A)}= \frac{P(A)- P(A \cap B)}{P(A)}= \frac
 
     Mututally exclusive: $A \cap B = \phi$
 
-    Eg 1: (Indepedent but not mutually exclusive). Coin toss followed by throwing dice experiment.
+    \begin{enumerate}
+        \item (Indepedent but not mutually exclusive). Coin toss followed by throwing dice experiment.
 
-    $$ S=\{ (H,1), (H,2), \cdots, (H,6), (T,1), \cdots, (T,6)\}$$
-    $F=$ Power set of S (Always an event space)
+        $$ S=\{ (H,1), (H,2), \cdots, (H,6), (T,1), \cdots, (T,6)\}$$
+        $F=$ Power set of S (Always an event space)
 
-    $A=\{(H,1), \cdots, (H,6) \}$, $B= \{ (H,2), (H,4), (H,6), (T,2),(T,4),(T,6)$
+        $A=\{(H,1), \cdots, (H,6) \}$, $B= \{ (H,2), (H,4), (H,6), (T,2),(T,4),(T,6)$
 
-    $P(A)= 1/2 \; \& \; P(B)= 1/2$
-    $$ P(A \cap B)= P(\{ (H,2), (H,4), (H,6)\})= \frac{3}{12}= \frac{1}{4}$$
-    $$ P(A\cap B)= P(A)P(B)$$
+        $P(A)= 1/2 \; \& \; P(B)= 1/2$
+        $$ P(A \cap B)= P(\{ (H,2), (H,4), (H,6)\})= \frac{3}{12}= \frac{1}{4}$$
+        $$ P(A\cap B)= P(A)P(B)$$
+        \item (Not independent but mutually exclusive)
+        If the events are mutually exclusive $\Rightarrow$ they are not independent.
 
-    Eg 2: (Not independent but mutually exclusive)
-    If the events are mutually exclusive $\Rightarrow$ they are not independent.
+        Single Coin Toss: $A= \{H \}$, $B= \{T \}$ $\rightarrow$ Mututally exclusive.
 
-    Single Coin Toss: $A= \{H \}$, $B= \{T \}$ $\rightarrow$ Mututally exclusive.
+        $P(A \cap B)= 0$, $P(A)P(B)= \frac{1}{4}$
 
-    $P(A \cap B)= 0$, $P(A)P(B)= \frac{1}{4}$
+        %Eg 3: (Not independent and not mutually exclusive) hw
 
-    %Eg 3: (Not independent and not mutually exclusive) hw
-\end{enumerate}
+
+    \end{enumerate}
+    \end{enumerate}
 
 \subsection{Conditionally indepedent events}
 
@@ -406,37 +427,41 @@ Exchanging limits with differentiation, integration etc. $\rightarrow$ require a
     \item $$E_1 \subseteq E_2 \subseteq \cdots$$
     $$P(\bigcup_{i=1}^{\infty} E_i)= \lim_{i \to \infty} P(E_i)$$
 
-    Proof:
-    We shall use the third axiom.
-    $D_1, D_2 \cdots \rightarrow$ mutually exclusive events.
+    \begin{proof}
+        We shall use the third axiom.
+        $D_1, D_2 \cdots \rightarrow$ mutually exclusive events.
 
-    $$ P(\bigcup_{i=1}^{\infty} D_i)= \sum_{i=1}^{\infty}P(D_i)$$
+        $$ P(\bigcup_{i=1}^{\infty} D_i)= \sum_{i=1}^{\infty}P(D_i)$$
 
-    $E_1 \subseteq E_2 \subseteq \rightarrow $ not mutually exclusive.
+        $E_1 \subseteq E_2 \subseteq \rightarrow $ not mutually exclusive.
 
-    Hence we construct a sequence which are mututally exclusive and unions of both sequences have to be the same.
+        Hence we construct a sequence which are mututally exclusive and unions of both sequences have to be the same.
 
-    $A_1=E_1$, $A_2=E_2\setminus E_1$, $ A_3=E_3 \setminus E_2$ , $\cdots$.
-    $$ P(\bigcup_{i=1}^{\infty} E_i)= P(\bigcup_{i=1}^{\infty} A_i)= \sum_{i=1}^{\infty}P(A_i)= \lim_{n \to \infty} \sum_{i=1}^{\infty}P(A_i)$$
+        $A_1=E_1$, $A_2=E_2\setminus E_1$, $ A_3=E_3 \setminus E_2$ , $\cdots$.
+        $$ P(\bigcup_{i=1}^{\infty} E_i)= P(\bigcup_{i=1}^{\infty} A_i)= \sum_{i=1}^{\infty}P(A_i)= \lim_{n \to \infty} \sum_{i=1}^{\infty}P(A_i)$$
 
-    $$\Rightarrow \lim_{n \to \infty} \sum_{i=1}^{n} P(A_i)= \lim_{n \to \infty} P(\bigcup_{i=1}^{n}A_i)= \lim_{n \to \infty}P(E_n)$$
-    If there exists a subsequence of events, which is increasing.
+        $$\Rightarrow \lim_{n \to \infty} \sum_{i=1}^{n} P(A_i)= \lim_{n \to \infty} P(\bigcup_{i=1}^{n}A_i)= \lim_{n \to \infty}P(E_n)$$
+        If there exists a subsequence of events, which is increasing.
+
+    \end{proof}
 
     \item Let $E_1 \supseteq E_2 \supseteq \cdots$ be a countably infinte sequence of events(decreasing sequence of events)
 
     $$P(\bigcap_{i=1}^{\infty}E_i)=\lim_{i \to \infty} P(E_i)$$
 
-    Proof: We can use the result of the previous proof.
-    $$ E_1^c \subseteq E_2^c \subseteq \cdots$$
-    which is an increasing set of events
-    $$P(\bigcup_{i=1}^{\infty} E_i^c)= \lim_{i \to \infty}P(E_i^c)$$
-    as,
-    $$ \left(\bigcap_{i=1}^{\infty} E_i \right)= \left( \bigcup_{i=1}^{\infty} E_i^c \right)^c $$
+    \begin{proof}
+        We can use the result of the previous proof.
+        $$ E_1^c \subseteq E_2^c \subseteq \cdots$$
+        which is an increasing set of events
+        $$P(\bigcup_{i=1}^{\infty} E_i^c)= \lim_{i \to \infty}P(E_i^c)$$
+        as,
+        $$ \left(\bigcap_{i=1}^{\infty} E_i \right)= \left( \bigcup_{i=1}^{\infty} E_i^c \right)^c $$
 
-    $$\Rightarrow 1- P(\bigcup_{i=1}^{\infty} E_i^c)= \lim_{i \to \infty}1- P(E_i^c)$$
+        $$\Rightarrow 1- P(\bigcup_{i=1}^{\infty} E_i^c)= \lim_{i \to \infty}1- P(E_i^c)$$
 
-    $$P \left(\bigcap_{i=1}^{\infty} E_i \right) = \lim_{i \to \infty }P(E_i)$$
+        $$P \left(\bigcap_{i=1}^{\infty} E_i \right) = \lim_{i \to \infty }P(E_i)$$
 
+    \end{proof}
 
 \end{itemize}
 
@@ -517,27 +542,31 @@ $$ X^{-1}((-\infty,x]) \subseteq S$$
 $F$ is set of all subsets of $S$.
 
 %9/6
-\subsection{Theorem}
+\subsection{Conditions on random variable}
+\begin{theorem}
+    Let a probability space be $(S,F,P)$ and $X$ is a random variable $X: S \rightarrow \mathbb{R}$.
+    The following conditions hold:
+    \begin{itemize}
+        \item $X^{-1}((-\infty,x)) \in F$
+        \item $X^{-1} (\{x\}) \in F$
+        \item $X^{-1}((x_1 , x_2]) \in F$
+        \item $X^{-1} ((x_1,x_2)) \in F$
+    \end{itemize}
+\end{theorem}
 
-Let a probability space be $(S,F,P)$ and $X$ is a random variable $X: S \rightarrow \mathbb{R}$.
-The following conditions hold:
-\begin{itemize}
-    \item $X^{-1}((-\infty,x)) \in F$
-    \item $X^{-1} (\{x\}) \in F$
-    \item $X^{-1}((x_1 , x_2]) \in F$
-    \item $X^{-1} ((x_1,x_2)) \in F$
-\end{itemize}
+\begin{proof}
 
-Proof: Applying the axioms of the event space we want to show the above conditions are true.
+    Applying the axioms of the event space we want to show the above conditions are true.
 
-$A_i=X^{-1}((-\infty,x]) \qquad x_i = x - \frac{1}{i}$. Now,
-$$ \bigcup_{i=1}^{\infty} (-\infty,x_i] = (-\infty,x)$$
+    $A_i=X^{-1}((-\infty,x]) \qquad x_i = x - \frac{1}{i}$. Now,
+    $$ \bigcup_{i=1}^{\infty} (-\infty,x_i] = (-\infty,x)$$
 
-$$ \bigcup_{i=1}^{\infty} A_i = \bigcup_{i=1}^{\infty} X^{-1}((-\infty,x_i]) = X^{-1}((-\infty,x)) \in F$$
+    $$ \bigcup_{i=1}^{\infty} A_i = \bigcup_{i=1}^{\infty} X^{-1}((-\infty,x_i]) = X^{-1}((-\infty,x)) \in F$$
 
-$$ X^{-1}((-\infty ,x] \cap {(-\infty,x)}^c) = X^{-1} (\{x\}) \in F$$
+    $$ X^{-1}((-\infty ,x] \cap {(-\infty,x)}^c) = X^{-1} (\{x\}) \in F$$
 
-Similarly the other conditions can also be proved.
+    Similarly the other conditions can also be proved.
+\end{proof}
 
 \section{Cumulative distribution function}
 It is denoted by $F_X(x)$.
@@ -550,33 +579,38 @@ The above definitions are different notations used, the last one is well defined
 
 \begin{enumerate}
     \item $F_X(x)$ is a monotonically non-decreasing function of x.
+    \begin{proof}
+        If $x_2 \geq x_1$, then $F_X(x_2) \geq F_X(x_1)$.
 
-    Proof: If $x_2 \geq x_1$, then $F_X(x_2) \geq F_X(x_1)$.
+        $$F_X(x_2) = P(X \leq x_2)= P(X \leq x_1)+P(x_1 < X \leq x_2)$$
+        $$F_X(x_2) = P(X \leq x_2) \geq P(X \leq x_1) -F_X(x_1) $$
 
-    $$F_X(x_2) = P(X \leq x_2)= P(X \leq x_1)+P(x_1 < X \leq x_2)$$
-    $$F_X(x_2) = P(X \leq x_2) \geq P(X \leq x_1) -F_X(x_1) $$
+    \end{proof}
 
     \item $\lim_{x \to \infty} F_X(x)= 1$
 
-    Proof: Construct a decreasing set of events. $A_i= (-\infty, i]$, $B_i = X^{-1}(A_i)$.
-    $$ \bigcap_{i=1}^{\infty}A_i= \mathbb{R}$$
-    $$ \bigcap_{i=1}^{\infty}B_i= S $$
+    \begin{proof}
+        Construct a decreasing set of events. $A_i= (-\infty, i]$, $B_i = X^{-1}(A_i)$.
+        $$ \bigcap_{i=1}^{\infty}A_i= \mathbb{R}$$
+        $$ \bigcap_{i=1}^{\infty}B_i= S $$
 
-    Applying continuity of probability,
-    $$ \lim_{i \to \infty}P(B_i)= P(\bigcup_{i=1}^{\infty}B_i) =P(S) = 0$$
-    $$ \lim_{i \to \infty}P(X \leq i)= \lim_{x \to \infty}P(X \leq x) = \lim_{x \to \infty} F_X(x)$$
+        Applying continuity of probability,
+        $$ \lim_{i \to \infty}P(B_i)= P(\bigcup_{i=1}^{\infty}B_i) =P(S) = 0$$
+        $$ \lim_{i \to \infty}P(X \leq i)= \lim_{x \to \infty}P(X \leq x) = \lim_{x \to \infty} F_X(x)$$
 
-    The change from integers to real numbers $x$ in the last step is valid.
+        The change from integers to real numbers $x$ in the last step is valid.
 
+    \end{proof}
     \item $\lim_{x \to -\infty} F_X(x)= 0$
+    \begin{proof}
+        Construct a decreasing set of events. $A_i= (-\infty, -i]$, $B_i = X^{-1}(A_i)$.
+       $$ B_1 \supseteq B_2 \supseteq \cdots$$
 
-    Proof: Construct a decreasing set of events. $A_i= (-\infty, -i]$, $B_i = X^{-1}(A_i)$.
-    $$ B_1 \supseteq B_2 \supseteq \cdots$$
-
-    $$ \bigcap_{i=1}^{\infty}B_i= \phi $$
-    $$ P(\bigcap_{i=1}^{\infty}B_i) = \lim_{i \to \infty}P(B_i)= 0$$
-    $$  \lim_{i \to \infty}P(B_i) =  \lim_{i \to \infty}P((-\infty,i])= \lim_{x \to \infty}P((-\infty,x]) \rightarrow \text{(x = all real nos.)}$$
-    $$ \lim_{x \to \infty}P((-\infty,x]) = \lim_{x \to \infty}F_X(x)= 0$$
+       $$ \bigcap_{i=1}^{\infty}B_i= \phi $$
+       $$ P(\bigcap_{i=1}^{\infty}B_i) = \lim_{i \to \infty}P(B_i)= 0$$
+       $$  \lim_{i \to \infty}P(B_i) =  \lim_{i \to \infty}P((-\infty,i])= \lim_{x \to \infty}P((-\infty,x]) \rightarrow \text{(x = all real nos.)}$$
+       $$ \lim_{x \to \infty}P((-\infty,x]) = \lim_{x \to \infty}F_X(x)= 0$$
+    \end{proof}
 %11/6
     \item $F_X(x)$ is a right continuous function.
     $$ \lim_{x \to x_0^+} F_X(x)= F_X(x_0)$$
@@ -587,16 +621,18 @@ The above definitions are different notations used, the last one is well defined
 
     Continuous function(Approaching from either left or right): $\lim_{x \to x_0} f(x)= f(x_0)$
 
-    Proof: Decreasing sequence of events $B_i= (X \leq x+\frac{1}{i})$
+    \begin{proof}
+        Decreasing sequence of events $B_i= (X \leq x+\frac{1}{i})$
 
-    $$ B_1 \supseteq B_2 \supseteq \cdots$$
-    $$ \bigcap_{i=1}^{\infty}B_i= \{ X \leq x\}$$
-    $$ P(\bigcap_{i=1}^{\infty}B_i) = P(X \leq x) = F_X(x)$$
-    $$ \Rightarrow \lim_{i \to \infty}P(B_i)= \lim_{i \to \infty}P(X \leq x + \frac{1}{i})$$
-    We are changing the variable from an integer to real.
-    $$= \lim_{\epsilon \to 0}P(X \leq x + \epsilon)=\lim_{\epsilon \to 0^+}F_X(x + \epsilon) $$
-    $$ = \lim_{x_0 \to x^+}F_X(x_0) \quad \text{Change of variable: }x_0= x+ \epsilon $$
+        $$ B_1 \supseteq B_2 \supseteq \cdots$$
+        $$ \bigcap_{i=1}^{\infty}B_i= \{ X \leq x\}$$
+        $$ P(\bigcap_{i=1}^{\infty}B_i) = P(X \leq x) = F_X(x)$$
+        $$ \Rightarrow \lim_{i \to \infty}P(B_i)= \lim_{i \to \infty}P(X \leq x + \frac{1}{i})$$
+        We are changing the variable from an integer to real.
+        $$= \lim_{\epsilon \to 0}P(X \leq x + \epsilon)=\lim_{\epsilon \to 0^+}F_X(x + \epsilon) $$
+        $$ = \lim_{x_0 \to x^+}F_X(x_0) \quad \text{Change of variable: }x_0= x+ \epsilon $$
 
+    \end{proof}
 \end{enumerate}
 
 \subsection{Indicator Random Variable}
@@ -665,17 +701,35 @@ $$ \lim_{x \to 1^+} F_{I_A}(x)= 1 \qquad F_{I_A}(1)= 1$$
 
 \end{itemize}
 
-%incomplete
 %14/6
+\begin{lemma}
+    For any $x \in \mathbb{R}$,
+    $$ P(X=x)= P(X \leq x)- P(X <x)$$
+    $$ P(X=x)= F_X(x)- \lim_{\epsilon \to 0}F_X(x- \epsilon)$$
 
-Corollary: $F_X(.)$ is left continuous if and only if $P(X=x)=0 \; \forall \; x \in \mathbb{R} $. From lemma,
+\end{lemma}
 
-$$ P(X=x)= F_X(x)- \lim_{\epsilon \to 0^+ }F_X(x-\epsilon)$$
+Upon applying continuity of probability.
+
+\begin{proof}
+    $$ B_1 \subseteq B_2 \subseteq \cdots$$
+    $$B_i=\{ X \leq x - \frac{1}{i}\} \qquad \bigcup_{i=1}^{\infty}B_i=\{ X<x\}$$
+
+    $$ P(X<x)= P(\bigcup_{i=1}^{\infty}B_i)= \lim_{i \to \infty} B_i = \lim_{\epsilon \to \infty}P(X \leq x- \epsilon)= \lim_{\epsilon \to 0}F_X(x-\epsilon)$$
+\end{proof}
+\begin{corollary}
+    $F_X(.)$ is left continuous if and only if $P(X=x)=0 \; \forall \; x \in \mathbb{R} $. From lemma,
+
+    $$ P(X=x)= F_X(x)- \lim_{\epsilon \to 0^+ }F_X(x-\epsilon)$$
+
+\end{corollary}
 
 A function is left continuous if
 
-$$  \lim_{\epsilon \to 0^+}F_X(x - \epsilon)= F_X(x) \quad \forall$$
-%incomplete
+$$  \lim_{\epsilon \to 0^+}F_X(x - \epsilon)= F_X(x) \quad \forall x \in \mathbb{R}$$
+$$ \Rightarrow P(X=x)= 0 \quad \forall x \in \mathbb{R}$$
+
+$F_X(.)$ is continuous, means that it is both right continuous, and in particular, left continuous.
 
 \subsection{Types of Random Variables}
 \begin{itemize}
@@ -688,28 +742,44 @@ $$  \lim_{\epsilon \to 0^+}F_X(x - \epsilon)= F_X(x) \quad \forall$$
 A random variable $X$ with cummulative distribution function $F_X(.)$ is said to be a continuous random variable if $F_X(.)$ is continuous.
 
 $P(X=x)=0 \quad \forall \; x \in \mathbb{R}$, probability of every point is zero.
-%incomplete
+
+An example for a continuous random variable is:
+\begin{equation*}
+    F_X (x)=
+    \begin{cases}
+      0, & \text{if}\ x < 0 \\
+      x, & \text{if}\ 0 \leq x < 1 \\
+      1, & \text{if}\ x\leq 1  \\
+    \end{cases}
+\end{equation*}
 
 In the context of a continuous random variable, we need to ask what is the probability of intervals or unions of intervals: $ P(a \leq X \leq b)$
 
-If $F_X(.)$ is differentiable, given that it is continuous we can find a
-%incomplete
+If $F_X(.)$ is differentiable, given that it is continuous then we can find another function for the continuous random variable.
 
 $$ f_X(x)= \frac{dF_X(x)}{dx}$$
 
-$f_X(x)$ is called the probability distribution function (pdf).
-%incomplete
+$f_X(x)$ is called the probability density function (pdf).
+\begin{equation*}
+    f_X (x)=
+    \begin{cases}
+      1, & \text{if}\ 0 < x < 1 \\
+      0, & \text{otherwise}\
+    \end{cases}
+\end{equation*}
 
 $$ F_X(a)= P(X \leq a)= \int_{-\infty}^{a}f_X(x)dx$$
 
 $$  P(a \leq X \leq b)=F_X(b)-F_X(a) = \int_{a}^{b}f_X(x)dx$$
 
 $$ P(x \leq X \leq x + \Delta x) \to \Delta x\text{ is very small(infintesimal)}$$
-$$ P(x \leq X \leq x + \Delta x) \approx$$
-%incomplete
+$$ P(x \leq X \leq x + \Delta x) \approx \text{area of rectangle with b=} \Delta x \;\& \text{ h= }f_X(x)$$
+$$ P(x \leq X \leq x + \Delta x) \approx f_X(x) \Delta x$$
 
-\subsubsection{When is a function a valid probability distribution function?}
-Two properties:
+\subsubsection{Probability density function}
+When is a function a valid probability density function?
+
+Two properties of the probability density function are:
 \begin{itemize}
     \item $f_X(x) \geq 0$
 
@@ -719,7 +789,8 @@ Two properties:
 
 Note: $f_X(.) \nleq 1$
 
-The probability distribution function itself doesn't indicate any probability. Only the area under it's curve indicates probability.
+The probability density function itself doesn't indicate any probability.
+Only the area under the curve indicates probability.
 
 \subsubsection{Discrete random variable}
 
@@ -735,7 +806,17 @@ Discrete random variables can take non-zero values unlike the continuous r.v's.
 $$ F_X(a)= \sum_{x_i \leq a}P(X= x_i)$$
 
 $$ P(X=x_i)= P_X(x_i)\qquad x_i \text{ is in the range of X.}$$
-%incomplete
+$P_X$ is said to be the probability mass function.
+
+\subsubsection{Probability mass function}
+When is a function a valid probability mass function?
+$$ S= \text{ Range of X }= \{ x_1, x_2, \cdots\}$$
+Two properties of the probability mass function are:
+\begin{itemize}
+    \item $P_X(x_i) \geq 0$
+
+    \item $ \sum_{x_i \in S}P_X(x_i)=1$
+\end{itemize}
 
 
 \end{document}
