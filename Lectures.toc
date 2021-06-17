@@ -37,3 +37,5 @@
 \contentsline {subsubsection}{\numberline {8.4.2}Probability density function}{20}{}%
 \contentsline {subsubsection}{\numberline {8.4.3}Discrete random variable}{21}{}%
 \contentsline {subsubsection}{\numberline {8.4.4}Probability mass function}{21}{}%
+\contentsline {subsubsection}{\numberline {8.4.5}Mixed random variable}{21}{}%
+\contentsline {subsection}{\numberline {8.5}Functions of random variables}{21}{}%
