@@ -731,14 +731,14 @@ $$ \Rightarrow P(X=x)= 0 \quad \forall x \in \mathbb{R}$$
 
 $F_X(.)$ is continuous, means that it is both right continuous, and in particular, left continuous.
 
-\subsection{Types of Random Variables}
+\section{Types of Random Variables}
 \begin{itemize}
     \item Continuous random variable
     \item Discrete random variable
     \item Mixed random variable
 \end{itemize}
 
-\subsubsection{Continuous random variables}
+\subsection{Continuous random variables}
 A random variable $X$ with cummulative distribution function $F_X(.)$ is said to be a continuous random variable if $F_X(.)$ is continuous.
 
 $P(X=x)=0 \quad \forall \; x \in \mathbb{R}$, probability of every point is zero.
@@ -792,7 +792,7 @@ Note: $f_X(.) \nleq 1$
 The probability density function itself doesn't indicate any probability.
 Only the area under the curve indicates probability.
 
-\subsubsection{Discrete random variable}
+\subsection{Discrete random variable}
 
 $X$ is said to be a discrete random variable if the range of $X$ is either finite or countably infinite in $\mathbb{R}$.
 $$ X:S \to \mathbb{R}$$
@@ -819,7 +819,7 @@ Two properties of the probability mass function are:
 \end{itemize}
 %17/6
 
-\subsubsection{Mixed random variable}
+\subsection{Mixed random variable}
 
 $F_X(.)$ is continuous in some intervals and also jumps at some points. The probability density function has some impulses included in it. Let, $X_1$ be a continuous random variable, $X_2$ be a discrete random variable, then $Y$, a linear combination, is a mixed variable.
 $$ Y= \alpha X_1 +\beta X_2$$
@@ -871,9 +871,8 @@ Any common functions satisfy the condition needed for $g$.
         \item When $X$ is continuous \& $Y$ is also continuous.
 
         Let $F_X(.)$ be the CDF of $X$ and $f_X(.)$ be the PDF of $Y$.
-
-        For the CDF's:
         $$ Y= aX+b \qquad a,b \in \mathbb{R}$$
+        For the CDF's:
             $$F_Y(y)= P(Y \leq y) $$
 
         $$ \{ Y \leq y\}= \{ aX+b \leq Y\}$$
@@ -909,8 +908,95 @@ Any common functions satisfy the condition needed for $g$.
 
         Hence,
         \fbox{$ f_Y(y)= \frac{1}{|a|}f_X \left(\frac{y-b}{a} \right)$}
+%18/6
+        \item $X$ is continuous and $Y$ is continuous, but a many to one function.
+        $$ Y= X^2$$
+        Now let us find the CDF \& PDF of $Y$ in therms of CDF \& PDF of $X$.
+        \begin{enumerate}
+            \item $y<0$, $F_Y(y)=0$
+            \item $y \geq 0$,
+            \begin{align*}
+                F_Y(y)= &= P(Y \leq y) \\
+                    &= P(X^2 \leq y) = P(-\sqrt{y} \leq x \leq \sqrt{y}) \\
+                    &= F_X(\sqrt{y})- F_X(-\sqrt{y}) + P(x= -\sqrt{y}) \\
+                    &= F_X(\sqrt{y})- F_X(-\sqrt{y})
+            \end{align*}
+        \end{enumerate}
+
+        $$ f_Y(y)= \frac{dF_Y(y)}{dy}= \frac{d}{dy}(F_X(\sqrt{y})- F_X(-\sqrt{y}))$$
+        $$ = \frac{1}{2\sqrt{y}}[f_X(\sqrt{y})- f_X(-\sqrt{y})]$$
+        \item $X$ is continuous, $Y$ is continuous and a many to one function.
+        \begin{equation*}
+            f_X (x)=
+            \begin{cases}
+              \frac{1}{2\pi}, & \text{if}\ 0 \leq x \leq 2\pi \\
+              0, & \text{otherwise}\
+            \end{cases}
+        \end{equation*}
+        $$ F_X(x)= \int_{-\infty}^{x} f_x(x)dx$$
+        $$ Y=\sin X$$
+        Let us find the PDF of $Y$.
+
+        \begin{enumerate}
+            \item Consider $0 \leq y \leq 1$
+            \begin{align*}
+                F_Y(y)&= P(Y \leq y) \\
+                    &= P(\sin{X} \leq Y) \\
+                    &= P(\{ 0 \leq X \leq \sin^{-1} y\} \cup \{ \pi - \sin^{-1}y \leq X \leq 2\pi \})\\
+                    &=P( 0 \leq X \leq \sin^{-1}y)+(\pi - \sin^{-1}y \leq X \leq 2 \pi )\\
+                    &= F_X(\sin^{-1}y)- F_X(0)+F_X(2\pi)- F_X(\pi - \sin^{-1}y)\\
+                    &= \frac{\sin^{-1}y}{2\pi}-0+1- \left( \frac{\pi - \sin^{-1}y}{2\pi}\right) \\
+                    &= \frac{1}{2}+ \frac{\sin^{-1}y}{\pi}
+            \end{align*}
+            \item $-1 \leq y <0$
+            \begin{align*}
+                F_y(y)&= P(Y \leq y) = P(\sin X \leq y)\\
+                &= P(\pi - \sin^{-1}y \leq X \leq 2\pi + \sin^{-1}y )
+            \end{align*}
+        \end{enumerate}
+
+    %    \begin{equation*}
+    %        f_Y (y)=
+    %        \begin{cases}
+    %         \frac{1}{\pi \sqrt{1-y^2}}, & \text{if}\ -1 \leq y < 1 \\
+    %         \frac{1}{\pi \sqrt{1-y^2}}, & \text{if}\ 0 \leq y \leq 1
+    %
+    %        \end{cases}
+    %    \end{equation*}
     \end{enumerate}
 \end{itemize}
 
+    \subsection{General formula for determining PDF of $Y= g(X)$}
+    Where $g$ is differentiable,
+
+    $$ P(y \leq Y \leq y + \Delta y) \approx f_Y(y)\Delta y$$
+    The left hand side can be written in terms of PDF of $X$.
+    $$ g(x_i)= y$$
+    $$ g^{-1}[y,y + \Delta y]= [x_1, x_1+ \Delta x_1]\cup [x_2, x_2+ \Delta x_2] \cdots [x_n, x_n+ \Delta x_n]$$
+What is the sign of slope of $g(x)$ at $x_i$?
+\begin{itemize}
+    \item If $g^{'} (x_i) \geq 0 \qquad [x_i,x_i+ \delta x_i]$
+    \item If $g^{'} (x_i) < 0 \qquad [x_i- \delta x_i,x_i]$
+\end{itemize}
+
+\begin{align*}
+    f_Y(y)\Delta y &= \sum_{i=1}^{n}P(x_i \leq X \leq x_i + \Delta x_i)\\
+                    &= \sum_{i=1}^{n} f_x(x_i)\Delta x_i
+\end{align*}
+$$ f_Y(y)= \sum_{i=1}^{n} f_X(x_i)\frac{\Delta x_i}{\Delta y}= \sum_{i=1}^{n} f_X(x_i)\frac{1}{(\Delta y / \Delta x_i)}$$
+
+For infintesimally small $\Delta y$ \& corresponding $\Delta x_i$:
+$$ \frac{\Delta y}{\Delta x_i}= |g^{'}(x_i)|$$
+
+We take modulus as LHS is positive, i.e. magnitude of the slope of tangent at $x_i$.
+
+$$ f_Y(y) = \sum_{i=1}^{n} \frac{f_X(x_i)}{|g^{'}(x_i)|}$$
+
+eg: $Y= X^2$
+$$ f_Y(y)= \frac{f_X(\sqrt{y})}{2\sqrt{y}}+ \frac{f_X(-\sqrt{y})}{2\sqrt{y}}$$
+
+eg: $Y= \sin X$, we take $\sin^{-1} y(2n\pi + \sin^{-1} y)$ \& $\pi - \sin^{-1} y(2n\pi + \pi - \sin^{-1} y)$
+
+$$ f_Y(y)= \sum_{n}\left[ \frac{f_X(2n\pi + \sin^{-1} y)}{\sqrt{1- y^2}} + \frac{f_X(2n\pi + \pi - \sin^{-1} y)}{\sqrt{1- y^2}} \right]$$
 
 \end{document}
