@@ -963,6 +963,27 @@ Any common functions satisfy the condition needed for $g$.
     %
     %        \end{cases}
     %    \end{equation*}
+
+    \item $X$ is continuous and $Y$ is discrete.
+
+    $X$ has CDF $F_X(.)$ \& PDF $f_X(.)$
+
+    $Y$ has CDF $F_Y(.)$ \& PMF $P_Y(.)$
+
+    $$Y=g(x)=k \; if \; k \leq x < k+1 \qquad k \in \mathbb{Z} $$
+    The above operation is also called quantization. Range of $g$ is countably infinite \& thus $Y$ is a discrete random variable.
+
+    We would like to experss the PMF of $Y$ in terms of the PDF of $X$.
+
+
+    \begin{align*}
+        P_Y(y)&= P(Y=y)= P(y \leq X < y+1) \\
+        &= \int_{y}^{y+1}f_X(x)dx
+    \end{align*}
+
+    In general,
+    $$ P_Y(y)= \int f_X(x)dx \qquad S= \{ x: g(x)=y\}$$
+
     \end{enumerate}
 \end{itemize}
 
@@ -992,11 +1013,96 @@ We take modulus as LHS is positive, i.e. magnitude of the slope of tangent at $x
 
 $$ f_Y(y) = \sum_{i=1}^{n} \frac{f_X(x_i)}{|g^{'}(x_i)|}$$
 
-eg: $Y= X^2$
-$$ f_Y(y)= \frac{f_X(\sqrt{y})}{2\sqrt{y}}+ \frac{f_X(-\sqrt{y})}{2\sqrt{y}}$$
+Examples:
+\begin{itemize}
+    \item $Y= X^2$
+    $$ f_Y(y)= \frac{f_X(\sqrt{y})}{2\sqrt{y}}+ \frac{f_X(-\sqrt{y})}{2\sqrt{y}}$$
+    \item $Y= \sin X$, we take $\sin^{-1} y(2n\pi + \sin^{-1} y)$ \& $\pi - \sin^{-1} y(2n\pi + \pi - \sin^{-1} y)$
 
-eg: $Y= \sin X$, we take $\sin^{-1} y(2n\pi + \sin^{-1} y)$ \& $\pi - \sin^{-1} y(2n\pi + \pi - \sin^{-1} y)$
+    $$ f_Y(y)= \sum_{n}\left[ \frac{f_X(2n\pi + \sin^{-1} y)}{\sqrt{1- y^2}} + \frac{f_X(2n\pi + \pi - \sin^{-1} y)}{\sqrt{1- y^2}} \right]$$
+\end{itemize}
 
-$$ f_Y(y)= \sum_{n}\left[ \frac{f_X(2n\pi + \sin^{-1} y)}{\sqrt{1- y^2}} + \frac{f_X(2n\pi + \pi - \sin^{-1} y)}{\sqrt{1- y^2}} \right]$$
+%21/6
+
+\begin{theorem}
+    If $Y= F_X(X)$, where $X$ itself is a random variable with CDF $F_X(.)$, the CDF of Y:
+    $$ F_Y(y)= P(Y \leq y)= P(F_X(x) \leq y)$$
+\end{theorem}
+    \begin{itemize}
+        \item If $y<0$,
+        $$ \{ X \leq F_{X}^{-1}((-\infty,y])\}= \phi \qquad P(F_{X}(x)\leq y)=0 $$
+        \item If $y \geq 1$,
+        \begin{align*}
+            F_Y(y)&= P(Y \leq y) = P(F_X(x) \leq y) \\
+            &= 1 \qquad \text{(max value of }F_X \text{ is 1, } F_{X}^{-1}((-\infty,y])= \mathbb{R})
+        \end{align*}
+        \item If $0 \leq y <1 $,
+        \begin{align*}
+            F_Y(y)= P(Y \leq y)&= P(F_X(x)\leq y) \\
+            &= P(X \leq F_{X}^{-1}(y)) \\
+            &= F_X(F_{X}^{-1}(y)) \\
+            &= y
+        \end{align*}
+    \end{itemize}
+    \begin{equation*}
+           f_Y (y)=
+            \begin{cases}
+             0, & \text{if}\  y < 0 \\
+             y, & \text{if}\  0 \leq y < 1 \\
+             1, & \text{if}\  y \geq 1
+            \end{cases}
+        \end{equation*}
+If we take any random variable $X$ \& apply $F_X(.)$ as a function of $X$, then resulting random variable is a uniform random variable.
+
+Suppose we start with an uniform random variable $Y$ and consider a function of $Y$ which is $X= F_{X}^{-1}(Y)$, then X has a CDF $F_X(.)$.
+
+%\fbox{In, MATLAB, there is an inbuilt function }
+
+\section{Expectation of a random variable}
+It is also called mean (or average).
+
+For a discrete random variable $X$, let $S$ be the range of $X$, which is either finite or countably infinte.
+
+$$ E(X)= \sum_{x_i \in S}x_i P_X(x_i)$$
+
+where $P_X$ is the PMF of random variable $X$.
+
+The expectation, is based on the weighted average, where weights are the probabilities of the random variable taking a particular value unlike the general notion of average.
+
+For a continuous random variable $X$,
+$$ E(X)= \int_{-\infty}^{\infty}x f_X(x)dx$$
+The integral can be thought of as the limit of a summation. Hence,
+$$ E(X)= \lim_{\Delta x_i \to 0} \sum_{i= -\infty}^{\infty}x_i f_X(x_i) \Delta x_i$$
+
+\subsection{Expectation of a function of a random variable}
+
+$ Y= g(X)$, $X$ \& $Y$ are discrete.
+\begin{align*}
+    E(Y)= \sum_{y_i}y_i P_Y(y_i)
+\end{align*}
+We can express $E(Y)$ in terms of PMF of $X$, $P_X$,
+\begin{align*}
+    E(Y)&= \sum_{y_i}y_i P_Y(y_i) \\
+    &= \sum_{y_i}y_i \sum_{x_{i,j}:g(x_{i,j})= y_i} P_X(x_{i,j}) \\
+    &= \sum_{y_i} \sum_{x_{i,j}:g(x_{i,j})= y_i} y_i P_X(x_{i,j}) \\
+    &= \sum_{y_i} \sum_{x_{i,j}:g(x_{i,j})= y_i} g(x_{i,j}) P_X(x_{i,j}) \\
+    &= \sum_{x_j} g(x_j) P_X(x_j)\\
+    \Rightarrow E(Y) &= \sum_{y_i}y_i P_Y(y_i) \\
+    &= \sum_{x_i} g(x_i) P_X(x_i)
+\end{align*}
+For continuous random variable,
+\begin{align*}
+    E(Y) &= \int_{-\infty}^{\infty}y f_Y(y)dy \\
+    &= \int_{-\infty}^{\infty} g(x)f_X(x)dx
+\end{align*}
+
+\subsection{Variance of a random variable}
+It is defined as,
+$$ E[g(X)] \qquad g(X)= (X - E(X))^2$$
+
+$E(X)$ indicates the average value of a random variable. So there is a variation in the values the random variable takes around mean, now we would like to measure this variation and hence the variance comes into play.
+
+$(X- E(X))$ measures variation from the mean, and we square it so that the positive and negative values don't cancel each other.
+
 
 \end{document}
