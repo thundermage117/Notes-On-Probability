@@ -43,3 +43,12 @@
 \contentsline {section}{\numberline {10}Expectation of a random variable}{27}{}%
 \contentsline {subsection}{\numberline {10.1}Expectation of a function of a random variable}{27}{}%
 \contentsline {subsection}{\numberline {10.2}Variance of a random variable}{28}{}%
+\contentsline {subsection}{\numberline {10.3}Examples of discrete random variables}{28}{}%
+\contentsline {subsection}{\numberline {10.4}Examples of continuous random variables}{30}{}%
+\contentsline {section}{\numberline {11}Random vectors and joint CDF}{31}{}%
+\contentsline {subsection}{\numberline {11.1}Properties of joint CDF}{31}{}%
+\contentsline {subsection}{\numberline {11.2}Conditional PMF}{33}{}%
+\contentsline {subsection}{\numberline {11.3}Bayes rule for discrete random variable}{34}{}%
+\contentsline {subsection}{\numberline {11.4}Bayes rule for continuous random variable}{34}{}%
+\contentsline {subsection}{\numberline {11.5}Bayes rule when X is discrete and Y is continuous}{35}{}%
+\contentsline {section}{\numberline {12}Independent random variables}{35}{}%

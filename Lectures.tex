@@ -1103,6 +1103,323 @@ $$ E[g(X)] \qquad g(X)= (X - E(X))^2$$
 $E(X)$ indicates the average value of a random variable. So there is a variation in the values the random variable takes around mean, now we would like to measure this variation and hence the variance comes into play.
 
 $(X- E(X))$ measures variation from the mean, and we square it so that the positive and negative values don't cancel each other.
+%23/6
+
+If $X$ is discrete:
+
+$E(X)= \mu$
+
+$E(X)= E(X-E(X)^2) = \sum_{x_i} (x_i - \mu )^2 P_X (x_i)$
+
+If $X$ is continuous:
+
+$E(X)= \mu$
+
+$E(X)= E(X-E(X)^2)= \int_{-\infty}^{\infty}(x- \mu)^2 f_X(x)dx$
+
+\begin{itemize}
+    \item $ Var(X) \geq 0$
+
+    $Var(X)=0$ iff $X=E(X)$ with probability 1.
+\end{itemize}
+
+\subsection{Examples of discrete random variables}
+\begin{enumerate}
+    \item Bernoulli random variable:
+
+    Experiment: Coin toss experiment.
+    $$X:S = \{ H,T\} \qquad H \to 1 \qquad T to 0$$
+    PMF of $X$, $P_X(1)= p,\; P_X(0)=1-p$
+
+    $E(X)= 0(1-p)+1(p)=p$.
+
+    $Var(X)= (0-p)^2(1-p)+ (1-p)^2 p = p(1-p)$
+
+
+    \item Binomial random variable:
+
+    Experiment: Toss a biased coin $n$ times. $X$ is defined as the number of heads in that string.
+    $$ S= \{ HH\cdots H, TH\cdots H, \cdots \}$$
+    $X:S \to R$
+
+    Range of $X$: $\{ 0,1, cdots, n\}$
+
+    PMF of $X$: $P_X (k)= {n \choose k} p^k (1-p)^{n-k}$
+    \begin{align*}
+        E(X)&= \sum_{k=0}^{n}k {n \choose k} p^k (1-p)^{n-k}\\
+        &= \sum_{k=1}^{n} \frac{n!}{(k-1)!(n-k)!} p^k (1-p)^{n-k} \\
+        &= np \sum_{k=0}^{n-1} \frac{(n-1)!}{k!(n-1-k)!} p^k (1-p)^{n-1-k} \\
+        &= np
+    \end{align*}
+    $Var(X)= np(1-p)$
+
+    \item Geometric random variable:
+
+    Experiment: Keep tossing a biased coin till we get a head.
+    $$ S= \{ H, TH, TTH, \cdots \} \qquad X:S \to R$$
+    $P(H)= p, \; P(T)= 1-p$
+
+    $P_X(k)= p(1-p)^{k-1}$
+
+    $$E(X)= \sum_{k=1}^{\infty} k p (1-p)^{k-1}= \frac{1}{p}$$
+
+    \begin{align*}
+        Var(X)&= E((X-E(X)^2)\\
+        &= E(X^2 -2X E(X) + (E(X))^2)\\
+        &= E(X^2)+E(-2XE(X))+E((E(X))^2\\
+        &= E(X^2)-2E(X)E(X)+(E(X))^2 \\
+        &= E(X^2)-(E(X))^2
+    \end{align*}
+    We know, $Var(X) \geq 0 \Rightarrow E(X^2) \geq (E(X))^2$
+
+    Now, $Var(x)$ for a geometric random variable:
+    \begin{align*}
+        Var(X)&= E(X^2)-E(X)^2 \\
+        &=  \sum_{k=1}^{\infty} k^2 p (1-p)^{k-1} - \left( \frac{1}{p}\right) ^2 \\
+        &= \frac{2-p}{p^2} - \frac{1}{p^2} \\
+        &= \frac{1-p}{p^2}
+    \end{align*}
+    \item Poisson random variable:
+
+    Experiment: When we have to count rare events within a time frame.
+    $$ X= \{ 0,1,2, \cdots\}$$
+    PMF of Poisson RV:
+    $$ P_X(k)= \frac{\lambda ^k}{k!} e^{-\lambda}$$
+    where $\lambda$ is a parameter and is the average value.
+
+    $Var(X)= \lambda$
+
+    \begin{align*}
+        \sum_{k=0}^{\infty} P_X(k) &= e^{-\lambda } \sum_{k=0}^{\infty} \frac{\lambda ^k}{k!} \\
+        &= e^{-\lambda} e^{\lambda} \\
+        &= 1
+    \end{align*}
+\end{enumerate}
+
+\subsection{Examples of continuous random variables}
+
+\begin{enumerate}
+%25/6
+    \item Uniform random variable:
+
+    Experiment: Measuring voltages, quantization error (original signal - quantized signal) is modelled as a uniform random variable.
+    \begin{equation*}
+            f_X (x)=
+            \begin{cases}
+            \frac{1}{b-a}, & \text{if}\ a \leq x \leq b \\
+             0, & \text{otherwise}
+            \end{cases}
+       \end{equation*}
+
+    $E(X)= \frac{a+b}{2}$
+
+    $ Var(X)= \frac{(b-a)^2}{12}$
+    \item Exponential random variable:
+
+    Experiment: Used to model completion time of a process.
+
+    \begin{equation*}
+            f_X (x)=
+            \begin{cases}
+            \lambda e^{-\lambda x}, & \text{if}\ x \geq 0\\
+             0, & \text{otherwise}
+            \end{cases}
+       \end{equation*}
+
+
+       $$E(X)=\int_{0}^{\infty} x \lambda e^{-\lambda x}dx = \frac{1}{x}$$
+       $$ Var(X)= E(X^2)- E(X)^2=\frac{1}{\lambda ^2}$$
+
+       \item Gaussian random variable:
+
+       Experiment: Noise is generally modelled as a Gaussian random variable. We shall discuss this in detail while doing the central limit theorem.
+
+       $$ f_X(x)= \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{(x- \mu)^2}{2 \sigma^2}}$$
+
+       Mean of $X$: $\mu$
+
+       $Var(x)= {\sigma}^2$
+   \end{enumerate}
+
+%26/6
+
+\section{Random vectors and joint CDF}
+Consider 2 individual random variables $X_1$ $X_2$, with $(S,F,P)$ as the probability space.
+$X_1:S \to \mathbb{R} \qquad X_2:S \to \mathbb{R}$
+
+$$ (X_1,X_2) :S \to {\mathbb{R}}^2$$
+
+Then $(X_1,X_2) $ form a random vector and the joint CDF of $X_1$ and $X_2$:
+$$ F_{X_1,X_2}(x_1,x_2)= P(X_1 \leq x_1, X_2 \leq x_2)$$
+
+$$ X_1 \leq x_1 = \{ w: X_1(w) \leq x_1\}= A_1 \in F$$
+
+$$ X_2 \leq x_2 = \{ w: X_2(w) \leq x_2\}= A_2 \in F$$
+
+$$(X_1 \leq x_1, X_2 \leq x_2)= \{ \omega : X_1(\omega) \leq x_1 \, \& \, X_2(\omega) \leq x_2\} = A_1 \cap A_2 \in F$$
+
+$$ P(X_1 \leq x_1 , X_2 \leq x_2) \; \forall \; (x_1 , x_2) \in {\mathbb{R}}^2$$
+
+By definition, $ F_{X_1 , X_2}(x_1 , x_2) =  P(X_1 \leq x_1 , X_2 \leq x_2)$.
+
+Then we can expand this definition till $n$, i.e.
+
+$X_1,X_2, \cdots , X_n \qquad X_iS \to \mathbb{R}$
+
+We can say that the joint CDF of $n$ random variables:
+$$ F_{X_1,\cdots ,X_n}(x_1,\cdots ,x_n)= P(X_1 \leq x_1, X_2 \leq x_2, \cdots X_n \leq x_n)$$
+
+\subsection{Properties of joint CDF}
+
+\begin{enumerate}
+    \item $F_{X,Y}(.,.) $ is monotonically non decreasing in x,y.
+
+    We can compare them for $\{ \{ x_1 = x_2, y_1 \leq y_2 \}, \{x_1 \leq x_2, y_1 = y_2 \} , \{ x_1 < x_2 , y_1 < y_2\}\}$ but not for $\{ x_1 > x_2 , y_1 < y_2\}$ etc.
+    \item $$ \lim_{x \to -\infty, y \to -\infty} F_{X,Y} (x,y)=0$$
+    $$ \lim_{x \to -\infty} F_{X,Y} (x,y)=0\qquad \lim_{y \to -\infty} F_{X,Y} (x,y)=0$$
+
+    \item $$ \lim_{x \to \infty, y \to \infty} F_{X,Y} (x,y)=1$$
+    $$ \lim_{x \to \infty} F_{X,Y} (x,y)= F_Y (y)\qquad \lim_{y \to \infty} F_{X,Y} (x,y)= F_X(x)$$
+
+    \item $F_{X,Y}(.,.)$ is right continuous individually in x \& y.
+    $$ \lim_{x \to x_0^{+}} F_{X,Y} (x,y)=F_X(x_0,y)$$
+    $$ \lim_{(x,y) \to (x_0^{+},y_0^{+})} F_{X,Y} (x,y)=F_X(x_0,y_0)$$
+
+\end{enumerate}
+
+Different cases possible for $X$ \& $Y$:
+\begin{itemize}
+    \item $X$ \& $Y$ both discrete.
+    \item $X$ \& $Y$ both continuous.
+    \item $X$ is discrete \& $Y$ is continuous.
+\end{itemize}
+
+\begin{enumerate}
+    \item $X$ \& $Y$ both discrete.
+    
+    Joint PMF:
+    $$ P_{X,Y}(x_i,y_i)= P(X= x_i,Y= y_i)$$
+    Expressing joint CDF in terms of the joint PMF,
+    $$ F_{X,Y}(x,y) = \sum_{x_i \leq x} \sum_{y_i \leq y} P_{X,Y}(x_i,y_i)$$
+
+    $X\to P_X \qquad Y \to P_Y \qquad (X,Y) \to P_{X,Y}$
+
+    We can form a relation between $P_{X,Y}$ and $P_X$,
+    $$ P_X(x_i) \sum_{y_i} P_{X,Y}(x_i,y_i)$$
+    $$ P(X= x_i) \sum_{y_i} P_{X,Y}(X=x_i,Y=y_i)$$
+
+    In the context of the joint PMF, $P_X$ \& $P_Y$ are also called as marginal PMF's.
+    And the process of summing over the range of the other random variable to get the marginal PMF, is known as marginalization.
+\end{enumerate}
+
+\subsection{Conditional PMF}
+
+Let us recall conditional probabilities (in the probability space $(S,F,P)$),
+$$ P(A/B)= \frac{P(A \cap B)}{P(B)} \qquad P(B)>0$$
+In the context of random variables, how do we define conditional probabilities?
+
+Given an event $B \in F$, $P(B)>0$. Conditional CDF conditioned on the event $B$ would be:
+$$ F_{X/B}(x/B)= \frac{P( (X \leq x)\cap B)}{P(B)}$$
+$X \leq x= \{ w: X(w) \leq x\}= A \in F$
+
+If $B$ is of the form $\{ Y \leq y \}$
+$$ F_{X/B}(x/B)= \frac{P((X \leq x) \cap B)}{P(B)}$$
+$$ F_{X/\{ Y \leq y \}}(x / \{ Y \leq y \})= \frac{P(\{ X \leq x \} \cap \{ Y \leq y \})}{P(\{ Y \leq y \})}= \frac{F_{X,Y}(x,y)}{F_Y (y)}$$
+We shall denote this, conditional PMF, by:
+$$ F_{X/Y}(x/y)= \frac{F_{X,Y}(x,y)}{F_Y (y)}$$
+
+If both $X$ \& $Y$ are discrete, for defining conditional PMF, we will not condition on $\{ Y \leq y_i \} $ but instead condition on $\{ Y = y_i \}$
+
+$$ P_{X/\{ Y = y_i \}}(x_i/\{ Y = y_i \})= \frac{P((X= x_i) \cap (Y=y_i))}{P(Y=y_i)}$$
+Conditional PMF:
+$$ P_{X/Y} (x_i /y_i)= \frac{P_{X,Y}(x_i,y_i)}{P_Y(y_i)}= \frac{\text{Joint PMF}}{\text{Marginal PMF}}$$
+
+% Example:
+
+%28/6
+
+If $X$ \& $Y$ are both continuous random variables, we can define joint PDF of $X$ \& $Y$ as
+$$ f_{X,Y}(x,y)= \frac{\partial^2 F_{X,Y}(x,y)}{\partial x \partial y}$$
+
+$$ F_{X,Y}(x,y) =\int_{-\infty}^{x} \int_{-\infty}^{y} $$
+%incomplete
+
+A joint PDF is said to be valid if,
+$$ f_{X,Y}(x,y) \geq 0 \quad \& \quad \int_{-\infty}^{x} \int_{-\infty}^{y} f_{X,Y}(x,y)\partial x \partial y =1$$
+
+When both $X$ \& $Y$ are continuous,
+$P(X=x )=0,\; P(Y=y)=0 $ i.e. probability that the random variable takes a single value, finite or countably infinite set of values is zero.
+
+Conditional PDF can be expressed in terms of joint PDF's and marginal PDF's,
+$$ f_{X/Y}(x/y)=$$
+%incomplete
+$$ f_{X/Y}(x/y)= \lim_{\Delta x \to 0, \Delta y \to 0} \frac{P(x<X \leq x+ \Delta x / y<Y \leq y+ \Delta y)}{\Delta x}$$
+$$ f_{X/B}(x/B)= \lim_{\Delta x \to 0} \frac{P(x<X \leq x+ \Delta x /B)}{\Delta x}$$
+
+If $B= \{ y<Y \leq y+ \Delta y \}$, and let $\Delta y \to 0$, $P(B) > 0$.
+
+$$ \Rightarrow f_{X/Y}(x/y)= \lim_{\Delta x \to 0, \Delta y \to 0} \frac{P(x<X \leq x+ \Delta x , y<Y \leq y+ \Delta y)}{P(y<Y \leq y+ \Delta y)\Delta x} $$
+$$= \lim_{\Delta x \to 0, \Delta y \to 0} \frac{}{} = $$
+
+\subsection{Bayes rule for discrete random variable}
+$$ P_{Y/X}(y_i /x_i) = \frac{P_{X/Y} (x_i/y_i) P_Y (y_i)}{P_X (x_i)}$$
+$$ =\frac{P_{X/Y} (x_i/y_i) P_Y (y_i)}{\sum_{y_i}P_{X/Y}(x_i/y_i) P_Y (y_i)}$$
+
+\subsection{Bayes rule for continuous random variable}
+$$ P(x < X \leq x+ \Delta x / y<Y \leq y+ \Delta y)= \frac{P(x < X \leq x+ \Delta x , y<Y \leq y+ \Delta y)P(x < X \leq x+ \Delta x)}{P(y<Y \leq y+ \Delta y)}$$
+$$ f_{X/Y}(x/y) \Delta x =\frac{f_{Y/X} (y/x) \Delta y f_X (x) \Delta x}{f_Y (y) \Delta y} $$
+
+$$ \Rightarrow f_{X/Y}(x/y)  =\frac{f_{Y/X} (y/x)  f_X (x) }{f_Y (y)}$$
+
+%Eg: $X$ \& $Y$ being continuous random variables
+%Consider a joint PDF of random variable $X$ \& $Y$ which is constant on set $S$ as shown in figure %unable to draw figure yet
+
+Case 3: If $X$ is discrete and $Y$ is continuous, then we can't talk about either joint PMF or PDF. We can talk about the joint CDF,
+\subsection{Bayes rule when X is discrete and Y is continuous}
+$$ P_{X/Y} (x/y) = \frac{f_{Y/X} (y/x) P_X (x)}{f_Y(y)}$$
+%incomplete
+\begin{align*}
+    f &= \\
+    &= \lim_{\Delta y \to 0} \frac{P(y< Y \leq y + \Delta y / X= x)P(X=x)}{P(y<Y \leq y+ \Delta y)} \\
+    &= \lim_{\Delta y \to 0}\frac{f_{Y/X} (y/x) \Delta y P(X=x)}{f_Y(y) \Delta y} \\
+    &=\frac{f_{Y/X} (y/x) P_X (x)}{f_Y(y)}
+\end{align*}
+
+\section{Independent random variables}
+
+\begin{itemize}
+    \item Discrete case: Two random variables are said to be indepedent if
+    $$ P_{X,Y}(x,y)= P_X (x) P_Y(y)$$
+    i.e. joint PMF is the product of the marginal PMF's.
+
+    OR,
+
+    $$ P_{X/Y}(x/y) = P_X (x)$$
+    \item Continuous case: Two random variables are sid to be indepedent if
+    $$ f_{X,Y}(x,y)= f_X (x) f_Y (y)$$
+    i.e. joint PDF is the product of the marginal PDF's.
+
+    OR,
+
+    $$ f_{X/Y}(x/y) = f_X (x)$$
+\end{itemize}
+
+If both $X$ \& $Y$ are discrete and indepedent, show that $F_{X,Y}(x,y)= F_X (x) F_Y (y)$.
+\begin{proof}
+    For the discrete case,
+    \begin{align*}
+        F_{X,Y}(x,y)&= P(X \leq x, Y \leq y) \\
+        &= \sum_{x_i \leq x} \sum_{y_i \leq y} P_{X,Y}(x_i,y_i) \\
+        &= \sum_{x_i \leq x} \sum_{y_i \leq y} P_{X}(x_i) P_Y(y_i) \\
+        &= \left[ \sum_{x_i \leq x} P_{X}(x_i)\right] \left[ \sum_{y_i \leq y} P_{y}(y_i)\right] \\
+        &= F_X (x) F_Y (y)
+    \end{align*}
+    %incomplete
+\end{proof}
+
+
+
+
 
 
 \end{document}
