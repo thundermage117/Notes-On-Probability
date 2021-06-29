@@ -1296,7 +1296,7 @@ Different cases possible for $X$ \& $Y$:
 
 \begin{enumerate}
     \item $X$ \& $Y$ both discrete.
-    
+
     Joint PMF:
     $$ P_{X,Y}(x_i,y_i)= P(X= x_i,Y= y_i)$$
     Expressing joint CDF in terms of the joint PMF,
@@ -1333,6 +1333,7 @@ If both $X$ \& $Y$ are discrete, for defining conditional PMF, we will not condi
 $$ P_{X/\{ Y = y_i \}}(x_i/\{ Y = y_i \})= \frac{P((X= x_i) \cap (Y=y_i))}{P(Y=y_i)}$$
 Conditional PMF:
 $$ P_{X/Y} (x_i /y_i)= \frac{P_{X,Y}(x_i,y_i)}{P_Y(y_i)}= \frac{\text{Joint PMF}}{\text{Marginal PMF}}$$
+\\
 
 % Example:
 
@@ -1341,18 +1342,22 @@ $$ P_{X/Y} (x_i /y_i)= \frac{P_{X,Y}(x_i,y_i)}{P_Y(y_i)}= \frac{\text{Joint PMF}
 If $X$ \& $Y$ are both continuous random variables, we can define joint PDF of $X$ \& $Y$ as
 $$ f_{X,Y}(x,y)= \frac{\partial^2 F_{X,Y}(x,y)}{\partial x \partial y}$$
 
-$$ F_{X,Y}(x,y) =\int_{-\infty}^{x} \int_{-\infty}^{y} $$
-%incomplete
+$$ F_{X,Y}(x,y) =\int_{-\infty}^{x} \int_{-\infty}^{y} f_{X,Y}(x,y) dx dy$$
+
+Marginal PDF's of $X$ \& $Y$ can be expressed in terms of joint PDF's as:
+$$ f_X (x)= \int_{-\infty}^{\infty} f_{X,Y}(x,y) dy$$
+$$ f_Y (y)= \int_{-\infty}^{\infty} f_{X,Y}(x,y) dx$$
 
 A joint PDF is said to be valid if,
 $$ f_{X,Y}(x,y) \geq 0 \quad \& \quad \int_{-\infty}^{x} \int_{-\infty}^{y} f_{X,Y}(x,y)\partial x \partial y =1$$
+\\
 
 When both $X$ \& $Y$ are continuous,
 $P(X=x )=0,\; P(Y=y)=0 $ i.e. probability that the random variable takes a single value, finite or countably infinite set of values is zero.
 
 Conditional PDF can be expressed in terms of joint PDF's and marginal PDF's,
-$$ f_{X/Y}(x/y)=$$
-%incomplete
+$$ f_{X/Y}(x/y)=\frac{f_{X,Y}(x,y)}{f_Y (y)}$$ \\
+
 $$ f_{X/Y}(x/y)= \lim_{\Delta x \to 0, \Delta y \to 0} \frac{P(x<X \leq x+ \Delta x / y<Y \leq y+ \Delta y)}{\Delta x}$$
 $$ f_{X/B}(x/B)= \lim_{\Delta x \to 0} \frac{P(x<X \leq x+ \Delta x /B)}{\Delta x}$$
 
@@ -1374,12 +1379,14 @@ $$ \Rightarrow f_{X/Y}(x/y)  =\frac{f_{Y/X} (y/x)  f_X (x) }{f_Y (y)}$$
 %Eg: $X$ \& $Y$ being continuous random variables
 %Consider a joint PDF of random variable $X$ \& $Y$ which is constant on set $S$ as shown in figure %unable to draw figure yet
 
-Case 3: If $X$ is discrete and $Y$ is continuous, then we can't talk about either joint PMF or PDF. We can talk about the joint CDF,
+
 \subsection{Bayes rule when X is discrete and Y is continuous}
+If $X$ is discrete and $Y$ is continuous, then we can't talk about either joint PMF or PDF. We can talk about the joint CDF,
 $$ P_{X/Y} (x/y) = \frac{f_{Y/X} (y/x) P_X (x)}{f_Y(y)}$$
-%incomplete
+
 \begin{align*}
-    f &= \\
+    P_{X/Y}(x/y) &= \lim_{\Delta y \to 0} P(X=x/y<Y \leq y + \Delta y) \\
+    &= \lim_{\Delta y \to 0} \frac{P(X=x,y<Y \leq y + \Delta y)}{P(y<Y \leq y + \Delta y)} \\
     &= \lim_{\Delta y \to 0} \frac{P(y< Y \leq y + \Delta y / X= x)P(X=x)}{P(y<Y \leq y+ \Delta y)} \\
     &= \lim_{\Delta y \to 0}\frac{f_{Y/X} (y/x) \Delta y P(X=x)}{f_Y(y) \Delta y} \\
     &=\frac{f_{Y/X} (y/x) P_X (x)}{f_Y(y)}
@@ -1414,11 +1421,8 @@ If both $X$ \& $Y$ are discrete and indepedent, show that $F_{X,Y}(x,y)= F_X (x)
         &= \left[ \sum_{x_i \leq x} P_{X}(x_i)\right] \left[ \sum_{y_i \leq y} P_{y}(y_i)\right] \\
         &= F_X (x) F_Y (y)
     \end{align*}
-    %incomplete
+    Similarly, using the same steps it can be proved for the continuous case too.
 \end{proof}
-
-
-
 
 
 

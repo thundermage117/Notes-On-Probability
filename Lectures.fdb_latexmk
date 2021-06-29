@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1624886864 "Lectures.tex" "Lectures.pdf" "Lectures" 1624886866
-  "Lectures.aux" 1624886866 6392 18ccbed397ad277fffc7971e8f6127c0 "pdflatex"
-  "Lectures.tex" 1624886862 53702 0c4964b944d141e60d3905eb728e15fc ""
-  "Lectures.toc" 1624886866 4145 abd242337832b01a46202ac80ed1bccb "pdflatex"
+["pdflatex"] 1624929884 "Lectures.tex" "Lectures.pdf" "Lectures" 1624929887
+  "Lectures.aux" 1624929887 6392 18ccbed397ad277fffc7971e8f6127c0 "pdflatex"
+  "Lectures.tex" 1624929883 54118 beb6e38388f413fce511398ab575896b ""
+  "Lectures.toc" 1624929887 4145 abd242337832b01a46202ac80ed1bccb "pdflatex"
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1622125359 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1622125719 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1622125567 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -79,7 +79,7 @@
   "c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1622127488 2724559 9f91299e925066be684294a8e576ca59 ""
   "c:/texlive/2021/texmf.cnf" 1622127312 713 e69b156964470283e0530f5060668171 ""
   (generated)
-  "Lectures.aux"
-  "Lectures.log"
   "Lectures.pdf"
+  "Lectures.log"
   "Lectures.toc"
+  "Lectures.aux"
